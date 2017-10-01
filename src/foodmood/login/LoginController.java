@@ -5,7 +5,7 @@
  */
 package foodmood.login;
 
-import foodmood.models.user.User;
+import foodmood.user.User;
 
 /**
  *

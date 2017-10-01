@@ -12,42 +12,50 @@ import java.util.ArrayList;
  * @author justin
  */
 public class FoodList {
-    
-    
+
     private final ArrayList<Food> theFoodList;
-    
+
     /**
      * The default constructor
      */
-    public FoodList(){
+    public FoodList() {
         theFoodList = new ArrayList<>();
     }
-    
+
     /**
      * Add a food to the FoodList
      *
      * @param theFoodToAdd
      */
-    public void addFood(Food theFoodToAdd){
+    public void addFood(Food theFoodToAdd) {
         theFoodList.add(theFoodToAdd);
     }
-    
+
     /**
      * Remove a food from the FoodList by index
-     * 
+     *
      * @param index
      */
-    public void removeFood(int index){
+    public void removeFood(int index) {
         theFoodList.remove(index);
     }
-    
+
     /**
      * Remove a food from the FoodList by object
-     * 
+     *
      * @param theFoodToRemove
      */
-    public void removeFood(Food theFoodToRemove){
+    public void removeFood(Food theFoodToRemove) {
         theFoodList.remove(theFoodToRemove);
     }
-}
 
+    /**
+     * Returns the food at a given index
+     * 
+     * @param index The index to return
+     * @return The food at the given index
+     */
+    public Food get(int index) {
+        return theFoodList.get(index);
+    }
+}

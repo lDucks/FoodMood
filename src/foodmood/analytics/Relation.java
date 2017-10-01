@@ -6,7 +6,7 @@
 package foodmood.analytics;
 
 import foodmood.food.Food;
-import foodmood.models.user.User;
+import foodmood.user.User;
 
 /**
  *

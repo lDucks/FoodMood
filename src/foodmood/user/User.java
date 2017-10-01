@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foodmood.models.user;
+package foodmood.user;
 
 import foodmood.food.FoodConsumed;
 import foodmood.notification.NotificationList;
@@ -74,5 +74,9 @@ public class User {
      */
     public void addFoodConsumed(FoodConsumed theFoodConsumed){
         this.theFoodConsumed.add(theFoodConsumed);
+    }
+
+    public void logout() {
+       exit();
     }
 }

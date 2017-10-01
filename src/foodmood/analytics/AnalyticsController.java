@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foodmood.controllers;
+package foodmood.analytics;
 
-import foodmood.analytics.Chart;
-import foodmood.analytics.Correlation;
-import foodmood.analytics.Relation;
 import foodmood.food.Food;
 import foodmood.food.FoodList;
-import foodmood.models.user.User;
+import foodmood.user.User;
 
 /**
  *
  * @author justin
  */
-public class ChartController {
+public class AnalyticsController {
     
     /**
      * Returns the relation chart object

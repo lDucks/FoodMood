@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foodmood.controllers;
+package foodmood;
 
 import foodmood.food.FoodConsumed;
+import foodmood.food.FoodHistoryUI;
 import foodmood.food.FoodList;
 import foodmood.food.FoodUI;
 import foodmood.mood.Mood;
-import foodmood.models.user.User;
+import foodmood.user.User;
 import foodmood.mood.MoodUI;
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class FoodMoodController {
     private final FoodList theFoodList;
     private FoodUI theFoodUI;
     private MoodUI theMoodUI;
+    private FoodHistoryUI theFoodHistoryUI;
     
     /**
      * The default constructor
@@ -61,8 +63,19 @@ public class FoodMoodController {
         theFoodUI.setVisible(true);
     }
 
+    /**
+     * Shows the mood UI.
+     */
     public void showMoodUI() {
         theMoodUI = new MoodUI();
         theMoodUI.setVisible(true);
+    }
+    
+    /**
+     * Shows the food history UI
+     */
+    public void showFoodHistoryUI(){
+        theFoodHistoryUI = new FoodHistoryUI();
+        theFoodHistoryUI.setVisible(true);
     }
 }

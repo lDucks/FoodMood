@@ -1,9 +1,11 @@
 package testharness;
 
-import foodmood.controllers.FoodMoodController;
+import foodmood.FoodMoodController;
+import foodmood.food.Food;
 import foodmood.login.LoginController;
 import foodmood.mood.Mood;
 import foodmood.navigation.NavigationController;
+import foodmood.user.User;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,6 +29,8 @@ public class Test {
         System.out.println("The user successfully logs in");
         theLoginCntl.login("username", "password");
         
+        User theUser = theLoginCntl.getCurrentUser();
+        
         System.out.println("The user is shown the navigation UI");
         NavigationController theNavCntl = new NavigationController();
         theNavCntl.showNavigationUI();
@@ -43,6 +47,24 @@ public class Test {
         
         System.out.println("The user is shown the navigation.");
         theNavCntl.showNavigationUI();
+        
+        System.out.println("The user views their food history");
+        theFoodMoodCntl.showFoodHistoryUI();
+        
+        System.out.println("The user views a food correlation");
+        theNavCntl.getAnalyticsController().showCorrelationChart(theUser.getFoodConsumed().get(0).getFoodList(), theUser);
+        
+        System.out.println("Then, the user returns back to the food history UI");
+        theFoodMoodCntl.showFoodHistoryUI();
+        
+        System.out.println("Then, the user views a food relation");
+        theNavCntl.getAnalyticsController().showRelationChart(theUser.getFoodConsumed().get(0).getFoodList().get(0), theUser);
+        
+        System.out.println("Then, the user returns to the main navigation");
+        theNavCntl.showNavigationUI();
+        
+        System.out.println("And the user logs out");
+        theUser.logout();
     }
     
 }

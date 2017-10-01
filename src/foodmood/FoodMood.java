@@ -5,8 +5,6 @@
  */
 package foodmood;
 
-import foodmood.controllers.FoodMoodController;
-
 /**
  *
  * @author justin
