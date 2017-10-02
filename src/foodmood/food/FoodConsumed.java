@@ -18,6 +18,7 @@ public class FoodConsumed {
     private final Mood mood;
     
     /**
+     * A list of food was consumed.
      *
      * @param theFoodList The list of food eaten for the food consumed
      * @param mood The user's mood after consuming the food
@@ -25,6 +26,19 @@ public class FoodConsumed {
     public FoodConsumed(FoodList theFoodList, Mood mood){
         this.timeEaten = System.currentTimeMillis();
         this.theFoodList = theFoodList;
+        this.mood = mood;
+    }
+    
+    /**
+     * A single food was consumed
+     *
+     * @param food The food to add
+     * @param mood The user's mood after consuming the food
+     */
+    public FoodConsumed(Food food, Mood mood){
+        this.timeEaten = System.currentTimeMillis();
+        this.theFoodList = new FoodList();
+        theFoodList.addFood(food);
         this.mood = mood;
     }
     

@@ -22,10 +22,6 @@ public class Mood {
     public Mood(int rating){
         this.rating = rating;
     }
-
-    public Mood() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     /**
      * Returns the user's mood

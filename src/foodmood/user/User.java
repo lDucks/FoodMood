@@ -77,6 +77,6 @@ public class User {
     }
 
     public void logout() {
-       exit();
+       System.exit(0);
     }
 }

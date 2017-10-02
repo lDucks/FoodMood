@@ -5,6 +5,7 @@
  */
 package foodmood;
 
+import foodmood.food.Food;
 import foodmood.food.FoodConsumed;
 import foodmood.food.FoodHistoryUI;
 import foodmood.food.FoodList;
@@ -22,10 +23,10 @@ public class FoodMoodController {
     
     private final ArrayList<User> theUserList;
     
-    private final FoodList theFoodList;
     private FoodUI theFoodUI;
     private MoodUI theMoodUI;
     private FoodHistoryUI theFoodHistoryUI;
+    private final FoodList theFoodList;
     
     /**
      * The default constructor
@@ -39,11 +40,12 @@ public class FoodMoodController {
      * Takes a list of food and prompts the user for a mood rating, then adds the food to the user's history.
      *
      * @param theMood The user's mood
+     * @param theFood The food consumed
      * @param theUser The user consuming the food
      */
-    public void userConsumedFood(Mood theMood, User theUser){
-        FoodConsumed theFood = new FoodConsumed(theFoodList, theMood);
-        theUser.addFoodConsumed(theFood);
+    public void userConsumedFood(Mood theMood, Food theFood, User theUser){
+        theFoodList.addFood(theFood);
+        theUser.addFoodConsumed(new FoodConsumed(theFood, theMood));
     }
     
     /**

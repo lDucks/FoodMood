@@ -43,7 +43,7 @@ public class Test {
         theFoodMoodCntl.showMoodUI();
         
         System.out.println("The user adds a new food that they consumed and the food");
-        theFoodMoodCntl.userConsumedFood(new Mood(), theLoginCntl.getCurrentUser());
+        theFoodMoodCntl.userConsumedFood(new Mood(1), new Food("Cheese"), theUser);
         
         System.out.println("The user is shown the navigation.");
         theNavCntl.showNavigationUI();
