@@ -16,7 +16,7 @@ public class Food {
     /**
      * The default constructor
      *
-     * @param name
+     * @param name The name parameter
      */
     public Food(String name){
         this.name = name;

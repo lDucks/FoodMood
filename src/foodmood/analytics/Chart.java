@@ -16,7 +16,7 @@ public class Chart {
     
     /**
      *
-     * @param relation
+     * @param relation The relation object to chart
      */
     public Chart(Relation relation){
         this.relation = relation;
@@ -25,7 +25,7 @@ public class Chart {
     
     /**
      *
-     * @param correlation
+     * @param correlation The correlation object to chart.
      */
     public Chart(Correlation correlation){
         this.correlation = correlation;

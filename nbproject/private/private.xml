@@ -12,30 +12,16 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/analytics/Correlation.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/navigation/NavigationUI.java</file>
+            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/user/User.java</file>
+            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/FoodMoodController.java</file>
+            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/analytics/Chart.java</file>
             <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/login/LoginController.java</file>
             <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/mood/Mood.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/models/user/User.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/food/FoodUI.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/notification/Notification.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/mood/MoodUI.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/analytics/RelationView.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/analytics/Relation.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/recommendation/Recommendation.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/controllers/FoodMoodController.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/controllers/ChartController.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/analytics/CorrelationView.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/navigation/NavigationController.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/analytics/Chart.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/analytics/ChartView.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/login/LoginUI.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/food/Food.java</file>
             <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/food/FoodConsumed.java</file>
+            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/food/Food.java</file>
             <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/testharness/Test.java</file>
             <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/food/FoodList.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/FoodMood.java</file>
-            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/notification/NotificationList.java</file>
+            <file>file:/home/justin/Documents/PSU/Fall%202017/IST%20412/FoodMood/src/foodmood/notification/Notification.java</file>
         </group>
     </open-files>
 </project-private>

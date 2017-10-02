@@ -18,8 +18,8 @@ public class Notification {
     /**
      * The default constructor
      *
-     * @param title
-     * @param description
+     * @param title The title of the notification
+     * @param description The message of he notification.
      */
     public Notification(String title, String description){
         this.title = title;
