@@ -5,6 +5,7 @@
  */
 package foodmood.user;
 
+import foodmood.serialization.SerializedDataController;
 import foodmood.food.FoodConsumed;
 import foodmood.notification.NotificationList;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
  */
 public class User {
 
+    public static String STORAGE_FILE_PATH = SerializedDataController.EXTERNAL_DATA_PATH + "users.ser";
+    
     private final String username;
     private final NotificationList theNotificationList;
     private final ArrayList<FoodConsumed> theFoodConsumed;
