@@ -20,18 +20,32 @@ import java.util.ArrayList;
  * @author justin
  */
 public class FoodMoodController {
-    
-    private final ArrayList<User> theUserList;
-    
+
+    private final ArrayList<User> theUserList;    
     private FoodUI theFoodUI;
     private MoodUI theMoodUI;
     private FoodHistoryUI theFoodHistoryUI;
     private final FoodList theFoodList;
     
+    private static FoodMoodController theFoodMoodControllerSingleton;
+    
+    /**
+     * The static FoodMoodController instance
+     * 
+     * @return the FoodMoodController singleton
+     */
+    public static FoodMoodController getFoodMoodController() {
+        if(theFoodMoodControllerSingleton == null){
+            theFoodMoodControllerSingleton = new FoodMoodController();
+        }
+        
+        return theFoodMoodControllerSingleton;
+    }
+    
     /**
      * The default constructor
      */
-    public FoodMoodController(){
+    private FoodMoodController(){
         theUserList = new ArrayList<>();
         theFoodList = new FoodList();
     }
@@ -79,5 +93,9 @@ public class FoodMoodController {
     public void showFoodHistoryUI(){
         theFoodHistoryUI = new FoodHistoryUI();
         theFoodHistoryUI.setVisible(true);
+    }
+
+    public void showNavigationUI() {
+        
     }
 }

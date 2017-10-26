@@ -15,9 +15,7 @@ public class FoodMood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        FoodMoodController foodMoodController = new FoodMoodController();
-        LoginUI aUI = new LoginUI(new LoginController());
-        aUI.setVisible(true);
+        LoginController theLoginController = new LoginController();
     }
     
 }

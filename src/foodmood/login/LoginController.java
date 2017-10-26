@@ -5,7 +5,9 @@
  */
 package foodmood.login;
 
+import foodmood.FoodMoodController;
 import foodmood.user.User;
+import java.util.Arrays;
 
 /**
  *
@@ -14,6 +16,15 @@ import foodmood.user.User;
 public class LoginController {
 
     private User currentUser;
+    private final LoginUI theLoginUI;
+    
+    /**
+     * The default constructor
+     */
+    public LoginController(){
+        this.theLoginUI = new LoginUI(this);
+        theLoginUI.setVisible(true);
+    }
     
     /**
      * Checks a user's information and logs them in.
@@ -24,10 +35,14 @@ public class LoginController {
      */
     public boolean login(String username, char [] password){
         User u = new User(username);
-        
         this.currentUser = u;
         
-        return u.authenticate(password.toString());
+        boolean authenticated = u.authenticate(Arrays.toString(password));
+        if(authenticated){
+            FoodMoodController.getFoodMoodController().showNavigationUI();
+        }
+        
+        return authenticated;
     }
 
     /**
@@ -38,5 +53,4 @@ public class LoginController {
     public User getCurrentUser() {
        return currentUser;
     }
-    
 }
