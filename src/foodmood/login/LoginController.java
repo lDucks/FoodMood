@@ -1,6 +1,5 @@
 package foodmood.login;
 
-import foodmood.signup.SignUpUI;
 import foodmood.navigation.NavigationController;
 import foodmood.user.User;
 import foodmood.user.UserList;
