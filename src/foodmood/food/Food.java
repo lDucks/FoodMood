@@ -5,11 +5,13 @@
  */
 package foodmood.food;
 
+import java.io.Serializable;
+
 /**
  *
  * @author justin
  */
-public class Food {
+public class Food implements Serializable {
 
     private final String name;
     

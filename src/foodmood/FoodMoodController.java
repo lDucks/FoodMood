@@ -11,6 +11,7 @@ import foodmood.food.FoodHistoryUI;
 import foodmood.food.FoodList;
 import foodmood.food.FoodUI;
 import foodmood.mood.Mood;
+import foodmood.mood.MoodHistoryUI;
 import foodmood.user.User;
 
 /**
@@ -20,9 +21,10 @@ import foodmood.user.User;
 public class FoodMoodController {
 
     private final FoodUI theFoodUI;
-//    private final MoodUI theMoodUI;
+    private final MoodUI theMoodUI;
     private final FoodHistoryUI theFoodHistoryUI;
     private final FoodList theFoodList;
+    private final MoodHistoryUI theMoodHistoryUI;
 
     /**
      * The default constructor
@@ -30,8 +32,9 @@ public class FoodMoodController {
     public FoodMoodController() {
         theFoodList = new FoodList();
         theFoodUI = new FoodUI();
+        theMoodUI = new MoodUI();
         theFoodHistoryUI = new FoodHistoryUI();
-//        theMoodUI = new MoodUI();
+        theMoodHistoryUI = new MoodHistoryUI();
     }
 
     /**
@@ -58,7 +61,7 @@ public class FoodMoodController {
      * Shows the mood UI.
      */
     public void showMoodUI() {
-//        theMoodUI.setVisible(true);
+        theMoodUI.setVisible(true);
     }
 
     /**
@@ -66,5 +69,9 @@ public class FoodMoodController {
      */
     public void showFoodHistoryUI() {
         theFoodHistoryUI.setVisible(true);
+    }
+
+    public void showMoodHistoryUI() {
+        theMoodHistoryUI.setVisible(true);
     }
 }

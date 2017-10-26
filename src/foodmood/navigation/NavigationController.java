@@ -6,7 +6,9 @@
 package foodmood.navigation;
 
 import foodmood.FoodMoodController;
+import foodmood.food.FoodHistoryUI;
 import foodmood.analytics.AnalyticsController;
+import foodmood.mood.MoodHistoryUI;
 
 /**
  *
@@ -22,7 +24,7 @@ public class NavigationController {
      * The default constructor.
      */
     public NavigationController() {
-        theNavUI = new NavigationUI();
+        theNavUI = new NavigationUI(this);
         theAnalyticsController = new AnalyticsController();
         theFoodMoodController = new FoodMoodController();
     }

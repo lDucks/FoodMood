@@ -1,5 +1,7 @@
 package foodmood.mood;
 
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,7 +12,7 @@ package foodmood.mood;
  *
  * @author justin
  */
-public class Mood {
+public class Mood implements Serializable  {
 
     private final int rating;
     
