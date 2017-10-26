@@ -62,12 +62,12 @@ public class SignUpUI extends JFrame {
                 e.printStackTrace();
             }
         }
-        signUp.addActionListner(new ActionListener() {
-            if(password != check){
-          JOptionPane.showMessageDialog(null, "Passwords do not match");
-                check.setText("");
-                password.setText("");
-                username.requestFocus();
+signUp.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) 
+        {
+         checkMatch(); 
+        }
+    });
 
                 signUp.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
@@ -109,8 +109,12 @@ public class SignUpUI extends JFrame {
                     }
                 });
             }
-
-        }
+ public static void checkMatch(){
+        if(password.getText() != check.getText())
+             JOptionPane.showMessageDialog(null,"Passwords do not match");
+          check.setText("");
+          password.setText("");
+          password.requestFocus();
     }
-
+           
 }
