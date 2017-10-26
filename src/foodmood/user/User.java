@@ -2,23 +2,22 @@ package foodmood.user;
 
 import foodmood.food.FoodConsumed;
 import foodmood.notification.NotificationList;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Gisward
  */
-public class User {
+public class User implements Serializable {
 
     private String username;
     private char[] password;
-    private final NotificationList theNotificationList;
     private final ArrayList<FoodConsumed> theFoodConsumed;
 
     public User(String newUsername, char[] newPassword) {
         this.username = newUsername;
         this.password = newPassword;
-        this.theNotificationList = new NotificationList();
         this.theFoodConsumed = new ArrayList<>();
     }
 
@@ -45,15 +44,6 @@ public class User {
      */
     public ArrayList<FoodConsumed> getFoodConsumed(){
         return theFoodConsumed;
-    }
-    
-    /**
-     * Returns the user's notification list
-     *
-     * @return The notification list
-     */
-    public NotificationList getNotificationList(){
-        return theNotificationList;
     }
     
     /**

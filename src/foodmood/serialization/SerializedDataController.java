@@ -49,7 +49,8 @@ public final class SerializedDataController {
 
             System.out.println("Data write to " + filePath + " was successful.");
         } catch (IOException ex) {
-            System.out.println("Data write to " + filePath + " failed.");
+            ex.printStackTrace();
+//            System.out.println("Data write to " + filePath + " failed.");
         }
 
         curTime = System.currentTimeMillis() - curTime;
