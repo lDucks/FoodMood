@@ -14,105 +14,103 @@ import java.util.*;
  *
  * @author jrc5713
  */
-public class SignUpUI {
-  public static JButton signUp;
-  public static JPanel signUpUI;
-  public static JTextField username;
-  public static JTextField password;
-  public static JTextField check;
+public class SignUpUI extends JFrame {
+
+    public static JButton signUp;
+    public static JPanel signUpUI;
+    public static JTextField username;
+    public static JTextField password;
+    public static JTextField check;
+
     /**
-     * @param args the command line arguments
+     * The default constructor
      */
-    public static void main(String[] args) {
+    public SignUpUI() {
         signUp = new JButton("Create");
         signUpUI = new JPanel();
         username = new JTextField(15);
         password = new JPasswordField(15);
         check = new JPasswordField(15);
 
-    signUpUI.setSize(300,200);
-    signUpUI.setLayout (null); 
+        signUpUI.setSize(300, 200);
+        signUpUI.setLayout(null);
 
+        username.setBounds(70, 20, 150, 20);
+        password.setBounds(70, 40, 150, 20);
+        check.setBounds(70, 60, 150, 20);
+        signUp.setBounds(110, 100, 80, 20);
 
-    username.setBounds(70,20,150,20);
-    password.setBounds(70,40,150,20);
-    check.setBounds(70,60,150,20);
-    signUp.setBounds(110,100,80,20);
+        signUpUI.add(signUp);
+        signUpUI.add(username);
+        signUpUI.add(password);
 
-    signUpUI.add(signUp);
-    signUpUI.add(username);
-    signUpUI.add(password);
+        getContentPane().add(signUpUI);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        signUpUI.setVisible(true);
 
-    getContentPane().add(signUpUI);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    signUpUI.setVisible(true);
+        Writer writer = null;
+        File confirm = new File("userPass.txt");
+        if (confirm.exists()) {
 
-    Writer writer = null;
-    File confirm = new File("userPass.txt");
-    if(confirm.exists()){
-
-      //Checks if the file exists. will not add anything if the file does exist.
-    }else{
-      try{
-        File texting = new File("userPass.txt");
-        writer = new BufferedWriter(new FileWriter(texting));
-        writer.write("message");
-      }catch(IOException e){
-        e.printStackTrace();
-      }
-    }
-    signUp.addActionListner (new ActionListener() {
-if(password != check) {
-          JOptionPane.showMessageDialog(null,"Username is already in use");
-          check.setText("");
-          password.setText("");
-          username.requestFocus();
-
-    signUp.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        try {
-    File file = new File("userInfo.txt");
-    Scanner scan = new Scanner(file);
-
-      FileWriter filewrite = new FileWriter(file, true);
-
-      String user = " ";
-      String pass = " ";
-      String punamer = username.getText();
-      String ppaswder = password.getText();
-      while (scan.hasNext()) {
-        user = scan.nextLine();
-        pass = scan.nextLine();
-      }
-
-        if(punamer.equals(user) && ppaswder.equals(pass)) {
-           JOptionPane.showMessageDialog(null,"Username is already in use");
-          username.setText("");
-          password.setText("");
-          username.requestFocus();
-
-        } 
-        else if(punamer.equals("") && ppaswder.equals("")){
-        JOptionPane.showMessageDialog(null,"Please insert Username and Password");
+            //Checks if the file exists. will not add anything if the file does exist.
+        } else {
+            try {
+                File texting = new File("userPass.txt");
+                writer = new BufferedWriter(new FileWriter(texting));
+                writer.write("message");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        else {
-        filewrite.write(punamer+"\r\n" +ppaswder+ "\r\n");
-        filewrite.close();
-        JOptionPane.showMessageDialog(null,"Account has been created.");
-        dispose();
-        login log = new login();
+        signUp.addActionListner(new ActionListener() {
+            if(password != check){
+          JOptionPane.showMessageDialog(null, "Username is already in use");
+                check.setText("");
+                password.setText("");
+                username.requestFocus();
 
+                signUp.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        try {
+                            File file = new File("userInfo.txt");
+                            Scanner scan = new Scanner(file);
+
+                            FileWriter filewrite = new FileWriter(file, true);
+
+                            String user = " ";
+                            String pass = " ";
+                            String punamer = username.getText();
+                            String ppaswder = password.getText();
+                            while (scan.hasNext()) {
+                                user = scan.nextLine();
+                                pass = scan.nextLine();
+                            }
+
+                            if (punamer.equals(user) && ppaswder.equals(pass)) {
+                                JOptionPane.showMessageDialog(null, "Username is already in use");
+                                username.setText("");
+                                password.setText("");
+                                username.requestFocus();
+
+                            } else if (punamer.equals("") && ppaswder.equals("")) {
+                                JOptionPane.showMessageDialog(null, "Please insert Username and Password");
+                            } else {
+                                filewrite.write(punamer + "\r\n" + ppaswder + "\r\n");
+                                filewrite.close();
+                                JOptionPane.showMessageDialog(null, "Account has been created.");
+                                dispose();
+                                login log = new login();
+
+                            }
+                        } catch (IOException d) {
+                            d.printStackTrace();
+                        }
+
+                    }
+                });
+            }
 
         }
-        } catch (IOException d) {
-      d.printStackTrace();
     }
 
-      }
-    });
-  } 
-
-}
-    }
-    
 }
