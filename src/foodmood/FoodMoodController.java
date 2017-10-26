@@ -13,7 +13,6 @@ import foodmood.food.FoodUI;
 import foodmood.mood.Mood;
 import foodmood.user.User;
 import foodmood.mood.MoodUI;
-import java.util.ArrayList;
 
 /**
  *
@@ -21,61 +20,38 @@ import java.util.ArrayList;
  */
 public class FoodMoodController {
 
-    private final ArrayList<User> theUserList;    
-    private FoodUI theFoodUI;
-    private MoodUI theMoodUI;
-    private FoodHistoryUI theFoodHistoryUI;
+    private final FoodUI theFoodUI;
+    private final MoodUI theMoodUI;
+    private final FoodHistoryUI theFoodHistoryUI;
     private final FoodList theFoodList;
-    
-    private static FoodMoodController theFoodMoodControllerSingleton;
-    
-    /**
-     * The static FoodMoodController instance
-     * 
-     * @return the FoodMoodController singleton
-     */
-    public static FoodMoodController getFoodMoodController() {
-        if(theFoodMoodControllerSingleton == null){
-            theFoodMoodControllerSingleton = new FoodMoodController();
-        }
-        
-        return theFoodMoodControllerSingleton;
-    }
-    
+
     /**
      * The default constructor
      */
-    private FoodMoodController(){
-        theUserList = new ArrayList<>();
+    public FoodMoodController() {
         theFoodList = new FoodList();
+        theFoodUI = new FoodUI();
+        theFoodHistoryUI = new FoodHistoryUI();
+        theMoodUI = new MoodUI();
     }
-    
+
     /**
-     * Takes a list of food and prompts the user for a mood rating, then adds the food to the user's history.
+     * Takes a list of food and prompts the user for a mood rating, then adds
+     * the food to the user's history.
      *
      * @param theMood The user's mood
      * @param theFood The food consumed
      * @param theUser The user consuming the food
      */
-    public void userConsumedFood(Mood theMood, Food theFood, User theUser){
+    public void userConsumedFood(Mood theMood, Food theFood, User theUser) {
         theFoodList.addFood(theFood);
         theUser.addFoodConsumed(new FoodConsumed(theFood, theMood));
-    }
-    
-    /**
-     * Returns the list of registered users for the application
-     * 
-     * @return The external userlist data.
-     */
-    public ArrayList<User> getUsers(){
-        return theUserList;
     }
 
     /**
      * Shows the food UI.
      */
     public void showFoodUI() {
-        theFoodUI = new FoodUI();
         theFoodUI.setVisible(true);
     }
 
@@ -83,19 +59,13 @@ public class FoodMoodController {
      * Shows the mood UI.
      */
     public void showMoodUI() {
-        theMoodUI = new MoodUI();
         theMoodUI.setVisible(true);
     }
-    
+
     /**
      * Shows the food history UI
      */
-    public void showFoodHistoryUI(){
-        theFoodHistoryUI = new FoodHistoryUI();
+    public void showFoodHistoryUI() {
         theFoodHistoryUI.setVisible(true);
-    }
-
-    public void showNavigationUI() {
-        
     }
 }

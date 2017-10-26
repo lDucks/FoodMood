@@ -1,56 +1,64 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package foodmood.login;
 
-import foodmood.FoodMoodController;
+import foodmood.navigation.NavigationController;
 import foodmood.user.User;
-import java.util.Arrays;
+import foodmood.user.UserList;
 
 /**
  *
- * @author justin
+ * @author Gisward
  */
-public class LoginController {
+public final class LoginController {
 
-    private User currentUser;
+    private final UserList theUserList;
     private final LoginUI theLoginUI;
-    
-    /**
-     * The default constructor
-     */
-    public LoginController(){
+    private User theCurrentUser;
+
+    public LoginController() {
+        this.theUserList = new UserList();
         this.theLoginUI = new LoginUI(this);
+        requestLoginUI();
+    }
+
+    public User getCurrentUser() {
+        return theCurrentUser;
+    }
+
+    public void requestLoginUI() {
         theLoginUI.setVisible(true);
     }
-    
-    /**
-     * Checks a user's information and logs them in.
-     * 
-     * @param username The user's username
-     * @param password The user's password
-     * @return If the user was logged in or not
-     */
-    public boolean login(String username, char [] password){
-        User u = new User(username);
-        this.currentUser = u;
-        
-        boolean authenticated = u.authenticate(Arrays.toString(password));
-        if(authenticated){
-            FoodMoodController.getFoodMoodController().showNavigationUI();
-        }
-        
-        return authenticated;
+
+    public NavigationController requestNavigationCntl() {
+        theLoginUI.dispose();
+        return new NavigationController();
     }
 
-    /**
-     * Returns the currently logged in user.
-     * 
-     * @return The current user
-     */
-    public User getCurrentUser() {
-       return currentUser;
+     public boolean requestAuthenticate(String usernameToCheck, char[] passwordToCheck) {
+        boolean auth = theUserList.authenticate(usernameToCheck, passwordToCheck);
+
+        if (auth) {
+             theCurrentUser = new User(usernameToCheck, passwordToCheck);
+        }
+
+        return auth;
+    }
+
+    public void requestRegisterUI() {
+        theLoginUI.setVisible(false);
+        SignUpUI theRegisterUI = new SignUpUI(this);
+        theRegisterUI.setVisible(true);
+    }
+
+    public boolean registerUser(String username, char[] password) {
+        if (theUserList.contains(username)) {
+            return false;
+        } else {
+            theUserList.add(new User(username, password));
+            return true;
+        }
+    }
+
+    public void logout() {
+       System.exit(0);
     }
 }

@@ -1,55 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package foodmood.user;
 
-import foodmood.serialization.SerializedDataController;
 import foodmood.food.FoodConsumed;
 import foodmood.notification.NotificationList;
 import java.util.ArrayList;
 
 /**
  *
- * @author justin
+ * @author Gisward
  */
 public class User {
 
-    public static String STORAGE_FILE_PATH = SerializedDataController.EXTERNAL_DATA_PATH + "users.ser";
-    
-    private final String username;
+    private String username;
+    private char[] password;
     private final NotificationList theNotificationList;
     private final ArrayList<FoodConsumed> theFoodConsumed;
 
-    /**
-     * Default constructor
-     *
-     * @param username The username of the user
-     */
-    public User(String username) {
-        this.username = username;
+    public User(String newUsername, char[] newPassword) {
+        this.username = newUsername;
+        this.password = newPassword;
         this.theNotificationList = new NotificationList();
         this.theFoodConsumed = new ArrayList<>();
     }
 
-    /**
-     * Authenticates the user with the given password.
-     *
-     * @param password The user's password
-     * @return Whether or not the user is logged in.
-     */
-    public boolean authenticate(String password) {
-        return false;
+    public String getUsername() {
+        return this.username;
     }
 
-    /**
-     * Returns the user's username
-     *
-     * @return The user's username
-     */
-    public String getUsername() {
-        return username;
+    public void setUsername(String newUsername) {
+        this.username = newUsername;
+    }
+
+    public char[] getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(char[] newPassword) {
+        this.password = newPassword;
     }
     
     /**
@@ -77,9 +63,5 @@ public class User {
      */
     public void addFoodConsumed(FoodConsumed theFoodConsumed){
         this.theFoodConsumed.add(theFoodConsumed);
-    }
-
-    public void logout() {
-       System.exit(0);
     }
 }

@@ -13,43 +13,38 @@ import foodmood.analytics.AnalyticsController;
  * @author justin
  */
 public class NavigationController {
-    
+
     private final NavigationUI theNavUI;
-    private final FoodMoodController theFoodMoodController;
     private final AnalyticsController theAnalyticsController;
-    
+    private final FoodMoodController theFoodMoodController;
+
     /**
      * The default constructor.
      */
-    public NavigationController(){
+    public NavigationController() {
         theNavUI = new NavigationUI();
-        theFoodMoodController = new FoodMoodController();
         theAnalyticsController = new AnalyticsController();
+        theFoodMoodController = new FoodMoodController();
     }
-    
+
     /**
      * Shows the navigation UI.
      */
-    public void showNavigationUI(){
+    public void showNavigationUI() {
         theNavUI.setVisible(true);
-    }
-    
-    /**
-     * Returns the food mood controller.
-     * 
-     * @return The FoodMoodController.
-     */
-    public FoodMoodController getFoodMoodController() {
-        return theFoodMoodController;
     }
 
     /**
      * Returns the analytics controller
-     * 
+     *
      * @return The analytics controller
      */
     public AnalyticsController getAnalyticsController() {
-       return theAnalyticsController;
+        return theAnalyticsController;
     }
-    
+
+    public FoodMoodController getFoodMoodController() {
+        return theFoodMoodController;
+    }
+
 }

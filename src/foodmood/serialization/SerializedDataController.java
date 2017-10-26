@@ -1,6 +1,7 @@
 package foodmood.serialization;
 
 import foodmood.user.User;
+import foodmood.user.UserList;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -88,6 +89,6 @@ public final class SerializedDataController {
     }
 
     public ArrayList<User> getUserList() {
-        return (ArrayList<User>) getList(User.STORAGE_FILE_PATH);
+        return (ArrayList<User>) getList(UserList.STORAGE_FILE_PATH);
     }
 }

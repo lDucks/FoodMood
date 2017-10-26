@@ -29,7 +29,7 @@ public class Test {
         System.out.println("SUCCESS!");
         System.out.println("The user successfully logs in");
         char [] password = {'p','a','s','s','w','o','r','d'};
-        theLoginCntl.login("username", password);
+        theLoginCntl.requestAuthenticate("username", password);
         
         User theUser = theLoginCntl.getCurrentUser();
         
@@ -77,7 +77,7 @@ public class Test {
 
         System.out.println("SUCCESS!");        
         System.out.println("And the user logs out");
-        theUser.logout();
+        theLoginCntl.logout();
     }
     
 }
