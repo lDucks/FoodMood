@@ -28,7 +28,8 @@ public class Test {
         
         System.out.println("SUCCESS!");
         System.out.println("The user successfully logs in");
-        theLoginCntl.login("username", "password");
+        char [] password = {'p','a','s','s','w','o','r','d'};
+        theLoginCntl.login("username", password);
         
         User theUser = theLoginCntl.getCurrentUser();
         

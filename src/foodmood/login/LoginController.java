@@ -27,7 +27,7 @@ public class LoginController {
         
         this.currentUser = u;
         
-        return u.authenticate(password);
+        return u.authenticate(password.toString());
     }
 
     /**

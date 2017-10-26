@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package foodmood;
-
+import foodmood.login.*;
 /**
  *
  * @author justin
@@ -16,6 +16,8 @@ public class FoodMood {
      */
     public static void main(String[] args) {
         FoodMoodController foodMoodController = new FoodMoodController();
+        LoginUI aUI = new LoginUI(new LoginController());
+        aUI.setVisible(true);
     }
     
 }
