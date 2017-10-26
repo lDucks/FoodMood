@@ -12,7 +12,6 @@ import foodmood.food.FoodList;
 import foodmood.food.FoodUI;
 import foodmood.mood.Mood;
 import foodmood.user.User;
-import foodmood.mood.MoodUI;
 
 /**
  *
@@ -21,7 +20,7 @@ import foodmood.mood.MoodUI;
 public class FoodMoodController {
 
     private final FoodUI theFoodUI;
-    private final MoodUI theMoodUI;
+//    private final MoodUI theMoodUI;
     private final FoodHistoryUI theFoodHistoryUI;
     private final FoodList theFoodList;
 
@@ -32,7 +31,7 @@ public class FoodMoodController {
         theFoodList = new FoodList();
         theFoodUI = new FoodUI();
         theFoodHistoryUI = new FoodHistoryUI();
-        theMoodUI = new MoodUI();
+//        theMoodUI = new MoodUI();
     }
 
     /**
@@ -59,7 +58,7 @@ public class FoodMoodController {
      * Shows the mood UI.
      */
     public void showMoodUI() {
-        theMoodUI.setVisible(true);
+//        theMoodUI.setVisible(true);
     }
 
     /**
