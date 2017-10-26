@@ -1,5 +1,6 @@
-package foodmood.login;
+package foodmood.signup;
 
+import foodmood.login.LoginController;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
