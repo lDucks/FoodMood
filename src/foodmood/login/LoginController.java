@@ -22,7 +22,7 @@ public class LoginController {
      * @param password The user's password
      * @return If the user was logged in or not
      */
-    public boolean login(String username, String password){
+    public boolean login(String username, char [] password){
         User u = new User(username);
         
         this.currentUser = u;
