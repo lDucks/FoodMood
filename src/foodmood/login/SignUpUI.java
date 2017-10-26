@@ -64,7 +64,7 @@ public class SignUpUI extends JFrame {
         }
         signUp.addActionListner(new ActionListener() {
             if(password != check){
-          JOptionPane.showMessageDialog(null, "Username is already in use");
+          JOptionPane.showMessageDialog(null, "Passwords do not match");
                 check.setText("");
                 password.setText("");
                 username.requestFocus();
