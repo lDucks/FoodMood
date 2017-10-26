@@ -99,7 +99,6 @@ signUp.addActionListener(new ActionListener() {
                                 filewrite.close();
                                 JOptionPane.showMessageDialog(null, "Account has been created.");
                                 dispose();
-                                login log = new login();
 
                             }
                         } catch (IOException d) {
