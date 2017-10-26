@@ -30,7 +30,7 @@ public class MoodUI extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
 
-        jLabel1.setText("How did the foods make you feel? (1 is horrible, 5 is fantastic)");
+        jLabel1.setText("How did the food(s) make you feel? (1 is horrible, 5 is fantastic)");
 
         jSlider1.setMaximum(5);
         jSlider1.setMinimum(1);
@@ -46,7 +46,7 @@ public class MoodUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

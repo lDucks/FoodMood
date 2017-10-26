@@ -24,7 +24,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="94" max="32767" attributes="0"/>
+              <EmptySpace pref="86" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,7 +43,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="How did the foods make you feel? (1 is horrible, 5 is fantastic)"/>
+        <Property name="text" type="java.lang.String" value="How did the food(s) make you feel? (1 is horrible, 5 is fantastic)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSlider" name="jSlider1">
