@@ -104,19 +104,23 @@ public class NavigationUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addFoodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodButtonActionPerformed
-        // TODO add your handling code here:
+        theCntl.hideNavigationUI();
+        theCntl.getFoodMoodController().showFoodUI();
     }//GEN-LAST:event_addFoodButtonActionPerformed
 
     private void foodHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodHistoryButtonActionPerformed
+        theCntl.hideNavigationUI();
         theCntl.getFoodMoodController().showFoodHistoryUI();
     }//GEN-LAST:event_foodHistoryButtonActionPerformed
 
     private void moodHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moodHistoryButtonActionPerformed
+        theCntl.hideNavigationUI();
         theCntl.getFoodMoodController().showMoodHistoryUI();
     }//GEN-LAST:event_moodHistoryButtonActionPerformed
 
     private void addMoodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoodButtonActionPerformed
-       theCntl.getFoodMoodController().showMoodUI();
+        theCntl.hideNavigationUI();
+        theCntl.getFoodMoodController().showMoodUI();
     }//GEN-LAST:event_addMoodButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

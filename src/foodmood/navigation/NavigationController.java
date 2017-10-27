@@ -26,7 +26,7 @@ public class NavigationController {
     public NavigationController() {
         theNavUI = new NavigationUI(this);
         theAnalyticsController = new AnalyticsController();
-        theFoodMoodController = new FoodMoodController();
+        theFoodMoodController = new FoodMoodController(this);
     }
 
     /**
@@ -34,6 +34,13 @@ public class NavigationController {
      */
     public void showNavigationUI() {
         theNavUI.setVisible(true);
+    }
+    
+    /**
+     * Hides the navigation UI.
+     */
+    public void hideNavigationUI() {
+       theNavUI.setVisible(false);
     }
 
     /**

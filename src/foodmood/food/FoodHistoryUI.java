@@ -5,17 +5,23 @@
  */
 package foodmood.food;
 
+import foodmood.navigation.NavigationController;
+
 /**
  *
  * @author dfs5170
  */
 public class FoodHistoryUI extends javax.swing.JFrame {
 
+    private final NavigationController theCntl;
+
     /**
      * Creates new form FoodHistoryUI
+     * @param theCntl
      */
-    public FoodHistoryUI() {
+    public FoodHistoryUI(NavigationController theCntl) {
         initComponents();
+        this.theCntl = theCntl;
     }
 
     /**
@@ -48,6 +54,11 @@ public class FoodHistoryUI extends javax.swing.JFrame {
         menuButton.setText("Return to Menu");
         menuButton.setToolTipText("");
         menuButton.setActionCommand("");
+        menuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,41 +86,10 @@ public class FoodHistoryUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FoodHistoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FoodHistoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FoodHistoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FoodHistoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FoodHistoryUI().setVisible(true);
-            }
-        });
-    }
-
+    private void menuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonActionPerformed
+          theCntl.showNavigationUI();
+          this.dispose();
+    }//GEN-LAST:event_menuButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel foodLabel;
     private javax.swing.JList<String> foodList;
