@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class Food implements Serializable {
 
     private final String name;
+    private final long timestamp;
     
     /**
      * The default constructor
@@ -21,6 +22,7 @@ public class Food implements Serializable {
      * @param name The name parameter
      */
     public Food(String name){
+        this.timestamp = System.currentTimeMillis();
         this.name = name;
     }
     

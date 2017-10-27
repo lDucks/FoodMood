@@ -6,7 +6,6 @@
 package foodmood;
 
 import foodmood.food.Food;
-import foodmood.food.FoodConsumed;
 import foodmood.food.FoodHistoryUI;
 import foodmood.food.FoodList;
 import foodmood.food.FoodUI;
@@ -22,11 +21,10 @@ import foodmood.user.User;
  */
 public class FoodMoodController {
 
-    private final FoodUI theFoodUI;
-    private final MoodUI theMoodUI;
     private final FoodHistoryUI theFoodHistoryUI;
     private final FoodList theFoodList;
     private final MoodHistoryUI theMoodHistoryUI;
+    private final NavigationController theNavigationController;
 
     /**
      * The default constructor
@@ -34,29 +32,16 @@ public class FoodMoodController {
      */
     public FoodMoodController(NavigationController theNavigationController) {
         theFoodList = new FoodList();
-        theFoodUI = new FoodUI();
-        theMoodUI = new MoodUI();
+        this.theNavigationController = theNavigationController;
         theFoodHistoryUI = new FoodHistoryUI(theNavigationController);
         theMoodHistoryUI = new MoodHistoryUI(theNavigationController);
-    }
-
-    /**
-     * Takes a list of food and prompts the user for a mood rating, then adds
-     * the food to the user's history.
-     *
-     * @param theMood The user's mood
-     * @param theFood The food consumed
-     * @param theUser The user consuming the food
-     */
-    public void userConsumedFood(Mood theMood, Food theFood, User theUser) {
-        theFoodList.addFood(theFood);
-        theUser.addFoodConsumed(new FoodConsumed(theFood, theMood));
     }
 
     /**
      * Shows the food UI.
      */
     public void showFoodUI() {
+        FoodUI theFoodUI = new FoodUI(theNavigationController);
         theFoodUI.setVisible(true);
     }
 
@@ -64,6 +49,7 @@ public class FoodMoodController {
      * Shows the mood UI.
      */
     public void showMoodUI() {
+        MoodUI theMoodUI = new MoodUI(theNavigationController);
         theMoodUI.setVisible(true);
     }
 
@@ -79,5 +65,15 @@ public class FoodMoodController {
      */
     public void showMoodHistoryUI() {
         theMoodHistoryUI.setVisible(true);
+    }
+    
+    public void addFoodToUser(String foodName){
+        Food theFood = new Food(foodName);
+        theNavigationController.getCurrentUser().addFoodConsumed(theFood);
+    }
+    
+    public void addMoodToUser(int rating){
+        Mood theMood = new Mood(rating);
+        theNavigationController.getCurrentUser().addMood(theMood);
     }
 }

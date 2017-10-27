@@ -30,7 +30,7 @@ public final class LoginController {
 
     public NavigationController requestNavigationCntl() {
         theLoginUI.dispose();
-        return new NavigationController();
+        return new NavigationController(this);
     }
 
      public boolean requestAuthenticate(String usernameToCheck, char[] passwordToCheck) {

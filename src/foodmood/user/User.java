@@ -1,9 +1,10 @@
 package foodmood.user;
 
-import foodmood.food.FoodConsumed;
-import foodmood.notification.NotificationList;
+import foodmood.food.Food;
+import foodmood.food.FoodList;
+import foodmood.mood.Mood;
+import foodmood.mood.MoodList;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  *
@@ -13,12 +14,14 @@ public class User implements Serializable {
 
     private String username;
     private char[] password;
-    private final ArrayList<FoodConsumed> theFoodConsumed;
+    private final FoodList theFoodList;
+    private final MoodList theMoodList;
 
     public User(String newUsername, char[] newPassword) {
         this.username = newUsername;
         this.password = newPassword;
-        this.theFoodConsumed = new ArrayList<>();
+        this.theFoodList = new FoodList();
+        this.theMoodList = new MoodList();
     }
 
     public String getUsername() {
@@ -36,22 +39,22 @@ public class User implements Serializable {
     public void setPassword(char[] newPassword) {
         this.password = newPassword;
     }
-    
-    /**
-     * Returns the user's food consumed history
-     *
-     * @return The history
-     */
-    public ArrayList<FoodConsumed> getFoodConsumed(){
-        return theFoodConsumed;
-    }
-    
+
     /**
      * The food consumed by the user
-     * 
+     *
      * @param theFoodConsumed The food consumed by the user
      */
-    public void addFoodConsumed(FoodConsumed theFoodConsumed){
-        this.theFoodConsumed.add(theFoodConsumed);
+    public void addFoodConsumed(Food theFoodConsumed) {
+        this.theFoodList.addFood(theFoodConsumed);
+    }
+
+    /**
+     * The mood of the user
+     *
+     * @param theMood The mood
+     */
+    public void addMood(Mood theMood) {
+        this.theMoodList.addMood(theMood);
     }
 }

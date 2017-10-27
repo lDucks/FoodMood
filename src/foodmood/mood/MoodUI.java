@@ -5,17 +5,23 @@
  */
 package foodmood.mood;
 
+import foodmood.navigation.NavigationController;
+
 /**
  *
  * @author justi
  */
 public class MoodUI extends javax.swing.JFrame {
 
+    private final NavigationController theCntl;
+
     /**
      * Creates new form MoodUI
+     * @param theCntl
      */
-    public MoodUI() {
+    public MoodUI(NavigationController theCntl) {
         initComponents();
+        this.theCntl = theCntl;
     }
 
     /**
@@ -37,6 +43,11 @@ public class MoodUI extends javax.swing.JFrame {
         jLabel1.setText("How did the foods make you feel? (1 is horrible, 5 is fantastic)");
 
         jButton1.setText("Submit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         moodSlider.setMaximum(5);
         moodSlider.setMinimum(1);
@@ -88,6 +99,12 @@ public class MoodUI extends javax.swing.JFrame {
     private void moodSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_moodSliderStateChanged
         spinnerLabel.setText(moodSlider.getValue()+"");
     }//GEN-LAST:event_moodSliderStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        theCntl.getFoodMoodController().addMoodToUser(moodSlider.getValue());
+        theCntl.showNavigationUI();
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

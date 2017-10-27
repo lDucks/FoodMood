@@ -15,6 +15,7 @@ import java.io.Serializable;
 public class Mood implements Serializable  {
 
     private final int rating;
+    private final long timestamp;
     
     /**
      * The default constructor
@@ -22,6 +23,7 @@ public class Mood implements Serializable  {
      * @param rating The rating for the mood. Accepts 1 to 5.
      */
     public Mood(int rating){
+        this.timestamp = System.currentTimeMillis();
         this.rating = rating;
     }
     

@@ -5,13 +5,14 @@
  */
 package foodmood.food;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author justin
  */
-public class FoodList {
+public class FoodList implements Serializable {
 
     private final ArrayList<Food> theFoodList;
 

@@ -31,11 +31,9 @@ public class Test {
         char [] password = {'p','a','s','s','w','o','r','d'};
         theLoginCntl.requestAuthenticate("username", password);
         
-        User theUser = theLoginCntl.getCurrentUser();
-        
         System.out.println("SUCCESS!");
         System.out.println("The user is shown the navigation UI");
-        NavigationController theNavCntl = new NavigationController();
+        NavigationController theNavCntl = new NavigationController(theLoginCntl);
         theNavCntl.showNavigationUI();
         FoodMoodController theFoodMoodCntl = theNavCntl.getFoodMoodController();
         
@@ -49,7 +47,8 @@ public class Test {
         
         System.out.println("SUCCESS!");
         System.out.println("The user adds a new food that they consumed and the food");
-        theFoodMoodCntl.userConsumedFood(new Mood(1), new Food("Cheese"), theUser);
+        theFoodMoodCntl.addFoodToUser("Cheese");
+        theFoodMoodCntl.addMoodToUser(1);
         
         System.out.println("SUCCESS!");
         System.out.println("The user is shown the navigation.");
@@ -61,7 +60,7 @@ public class Test {
         
         System.out.println("SUCCESS!");
         System.out.println("The user views a food correlation");
-        theNavCntl.getAnalyticsController().showCorrelationChart(theUser.getFoodConsumed().get(0).getFoodList(), theUser);
+//        theNavCntl.getAnalyticsController().showCorrelationChart();
         
         System.out.println("SUCCESS!");
         System.out.println("Then, the user returns back to the food history UI");
@@ -69,7 +68,7 @@ public class Test {
         
         System.out.println("SUCCESS!");
         System.out.println("Then, the user views a food relation");
-        theNavCntl.getAnalyticsController().showRelationChart(theUser.getFoodConsumed().get(0).getFoodList().get(0), theUser);
+//        theNavCntl.getAnalyticsController().showRelationChart();
 
         System.out.println("SUCCESS!");        
         System.out.println("Then, the user returns to the main navigation");

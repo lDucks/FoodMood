@@ -8,7 +8,9 @@ package foodmood.navigation;
 import foodmood.FoodMoodController;
 import foodmood.food.FoodHistoryUI;
 import foodmood.analytics.AnalyticsController;
+import foodmood.login.LoginController;
 import foodmood.mood.MoodHistoryUI;
+import foodmood.user.User;
 
 /**
  *
@@ -19,14 +21,17 @@ public class NavigationController {
     private final NavigationUI theNavUI;
     private final AnalyticsController theAnalyticsController;
     private final FoodMoodController theFoodMoodController;
+    private final LoginController theLoginController;
 
     /**
      * The default constructor.
+     * @param theLoginController
      */
-    public NavigationController() {
+    public NavigationController(LoginController theLoginController) {
         theNavUI = new NavigationUI(this);
         theAnalyticsController = new AnalyticsController();
         theFoodMoodController = new FoodMoodController(this);
+        this.theLoginController = theLoginController;
     }
 
     /**
@@ -54,6 +59,14 @@ public class NavigationController {
 
     public FoodMoodController getFoodMoodController() {
         return theFoodMoodController;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public User getCurrentUser() {
+        return theLoginController.getCurrentUser();
     }
 
 }
