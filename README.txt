@@ -31,3 +31,13 @@ Object Oriented Pattern: The object oriented design pattern I selected was facto
 I implemented factories for food creation. The app has a class within food that pulls
 information from the food ui to create new foods. THe new object can be viewed, edited,
 deleted, etc.
+
+Justin Rosenthal:
+
+Design Pattern: The design pattern that I selected was an input placeholder. 
+We used this design pattern for the food input form. Inside the text box we provide
+more context to the user explaining what we are looking for.
+
+Object-Oriented Pattern: The OO pattern that I picked was not ready for the current 
+stage of the project. Therefore, we implemented an iterator for user registration in order
+to make sure that we are not registering a user who already exists.
