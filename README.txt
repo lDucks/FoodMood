@@ -41,3 +41,14 @@ more context to the user explaining what we are looking for.
 Object-Oriented Pattern: The OO pattern that I picked was not ready for the current 
 stage of the project. Therefore, we implemented an iterator for user registration in order
 to make sure that we are not registering a user who already exists.
+
+Jacob Chorney
+
+Design Pattern: My design pattern that I chose is the decorator pattern. This pattern could not
+be implemented in anything so far but is going to be used for our larger panels, such as food/mood history.
+This is due to the decorator pattern pertaining to features such as a scroll bar. The screens implemented so
+far have been to small to use a scroll bar.
+
+Object Oriented Pattern: The object oriented design pattern I selected was the interator pattern.
+This pattern is good at scanning through lists and choosing certain information and will be used for our
+Food/Mood history. Since we have yet to implement these parts we have yet to use these patterns.
