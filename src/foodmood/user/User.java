@@ -57,4 +57,16 @@ public class User implements Serializable {
     public void addMood(Mood theMood) {
         this.theMoodList.addMood(theMood);
     }
+
+    /**
+     *
+     * @return
+     */
+    public MoodList getMoodHistory() {
+        return theMoodList;
+    }
+
+    public FoodList getFoodHistory() {
+        return theFoodList;
+    }
 }

@@ -22,6 +22,11 @@ public class MoodHistoryUI extends javax.swing.JFrame {
      */
     public MoodHistoryUI(NavigationController theCntl) {
         initComponents();
+        moodList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = theCntl.getCurrentUser().getMoodHistory().toArray();
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         this.theCntl = theCntl;
     }
 
@@ -45,11 +50,6 @@ public class MoodHistoryUI extends javax.swing.JFrame {
         foodLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         foodLabel.setText("Your Previous Moods:");
 
-        moodList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(moodList);
 
         menuButton.setText("Return to Menu");

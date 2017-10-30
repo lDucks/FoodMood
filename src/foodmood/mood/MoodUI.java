@@ -6,6 +6,7 @@
 package foodmood.mood;
 
 import foodmood.navigation.NavigationController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +18,7 @@ public class MoodUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MoodUI
+     *
      * @param theCntl
      */
     public MoodUI(NavigationController theCntl) {
@@ -97,11 +99,12 @@ public class MoodUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void moodSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_moodSliderStateChanged
-        spinnerLabel.setText(moodSlider.getValue()+"");
+        spinnerLabel.setText(moodSlider.getValue() + "");
     }//GEN-LAST:event_moodSliderStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         theCntl.getFoodMoodController().addMoodToUser(moodSlider.getValue());
+        JOptionPane.showMessageDialog(this, "Mood Successfully Added!");
         theCntl.showNavigationUI();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

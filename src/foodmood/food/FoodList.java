@@ -5,10 +5,9 @@
  */
 package foodmood.food;
 
-import java.awt.Component;
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -17,7 +16,6 @@ import javax.swing.JOptionPane;
 public class FoodList implements Serializable {
 
     private final ArrayList<Food> theFoodList;
-    private Component frame;
 
     /**
      * The default constructor
@@ -33,8 +31,6 @@ public class FoodList implements Serializable {
      */
     public void addFood(Food theFoodToAdd) {
         theFoodList.add(theFoodToAdd);
-        JOptionPane.showMessageDialog(frame,
-    "Food Successfully Added!");
     }
 
     /**
@@ -63,5 +59,9 @@ public class FoodList implements Serializable {
      */
     public Food get(int index) {
         return theFoodList.get(index);
+    }
+
+    public String[] toArray() {
+        return  theFoodList.stream().map(food -> food.getName()).collect(Collectors.toList()).toArray(new String[0]);
     }
 }

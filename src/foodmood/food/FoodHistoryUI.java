@@ -22,6 +22,11 @@ public class FoodHistoryUI extends javax.swing.JFrame {
     public FoodHistoryUI(NavigationController theCntl) {
         initComponents();
         this.theCntl = theCntl;
+         foodList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = theCntl.getCurrentUser().getFoodHistory().toArray();
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
     }
 
     /**
@@ -44,11 +49,7 @@ public class FoodHistoryUI extends javax.swing.JFrame {
         foodLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         foodLabel.setText("Your Previous Meals:");
 
-        foodList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
+        foodList.setToolTipText("");
         jScrollPane1.setViewportView(foodList);
 
         menuButton.setText("Return to Menu");

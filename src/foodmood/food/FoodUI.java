@@ -6,6 +6,7 @@
 package foodmood.food;
 
 import foodmood.navigation.NavigationController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,7 @@ public class FoodUI extends javax.swing.JFrame {
     public FoodUI(NavigationController theCntl) {
         initComponents();
         this.theCntl = theCntl;
+        getContentPane().requestFocusInWindow();
     }
 
     /**
@@ -42,6 +44,13 @@ public class FoodUI extends javax.swing.JFrame {
 
         jLabel1.setText("Food Name");
 
+        foodField.setText("Enter the name of the food you ate");
+        foodField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                foodFieldFocusGained(evt);
+            }
+        });
+
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,8 +67,8 @@ public class FoodUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 252, Short.MAX_VALUE))
-                    .addComponent(foodField)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(foodField, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)))
@@ -82,9 +91,16 @@ public class FoodUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         theCntl.getFoodMoodController().addFoodToUser(foodField.getText());
+        JOptionPane.showMessageDialog(this, "Food Successfully Added!");
         theCntl.showNavigationUI();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void foodFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_foodFieldFocusGained
+        if(foodField.getText().equals("Enter the name of the food you ate"))
+            foodField.setText("");
+    }//GEN-LAST:event_foodFieldFocusGained
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateButton;
     private javax.swing.JTextField foodField;

@@ -7,33 +7,36 @@ import java.io.Serializable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author justin
  */
-public class Mood implements Serializable  {
+public class Mood implements Serializable {
 
     private final int rating;
     private final long timestamp;
-    
+
     /**
      * The default constructor
-     * 
+     *
      * @param rating The rating for the mood. Accepts 1 to 5.
      */
-    public Mood(int rating){
+    public Mood(int rating) {
         this.timestamp = System.currentTimeMillis();
         this.rating = rating;
     }
-    
+
     /**
      * Returns the user's mood
      *
      * @return The rating
      */
-    public int getRating(){
-       return rating;
+    public int getRating() {
+        return rating;
     }
-    
+
+    public String toString() {
+        return getRating() + "";
+    }
+
 }

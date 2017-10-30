@@ -8,7 +8,7 @@ package foodmood.mood;
 import java.awt.Component;
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -17,7 +17,6 @@ import javax.swing.JOptionPane;
 public class MoodList implements Serializable {
 
     private final ArrayList<Mood> theMoodList;
-    private Component frame;
 
     /**
      * The default constructor
@@ -33,8 +32,6 @@ public class MoodList implements Serializable {
      */
     public void addMood(Mood theMoodToAdd) {
         theMoodList.add(theMoodToAdd);
-        JOptionPane.showMessageDialog(frame,
-    "Mood Successfully Added!");
     }
 
     /**
@@ -63,5 +60,13 @@ public class MoodList implements Serializable {
      */
     public Mood get(int index) {
         return theMoodList.get(index);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String[] toArray() {
+       return theMoodList.stream().map(mood -> mood.getRating()+"").collect(Collectors.toList()).toArray(new String[0]);
     }
 }

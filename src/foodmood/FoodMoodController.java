@@ -22,20 +22,15 @@ import javax.swing.JOptionPane;
  */
 public class FoodMoodController {
 
-    private final FoodHistoryUI theFoodHistoryUI;
-    private final FoodList theFoodList;
-    private final MoodHistoryUI theMoodHistoryUI;
     private final NavigationController theNavigationController;
 
     /**
      * The default constructor
+     *
      * @param theNavigationController
      */
     public FoodMoodController(NavigationController theNavigationController) {
-        theFoodList = new FoodList();
         this.theNavigationController = theNavigationController;
-        theFoodHistoryUI = new FoodHistoryUI(theNavigationController);
-        theMoodHistoryUI = new MoodHistoryUI(theNavigationController);
     }
 
     /**
@@ -58,6 +53,7 @@ public class FoodMoodController {
      * Shows the food history UI
      */
     public void showFoodHistoryUI() {
+        FoodHistoryUI theFoodHistoryUI = new FoodHistoryUI(theNavigationController);
         theFoodHistoryUI.setVisible(true);
     }
 
@@ -65,15 +61,16 @@ public class FoodMoodController {
      * Shows the mood history UI
      */
     public void showMoodHistoryUI() {
+        MoodHistoryUI theMoodHistoryUI = new MoodHistoryUI(theNavigationController);
         theMoodHistoryUI.setVisible(true);
     }
-    
-    public void addFoodToUser(String foodName){
+
+    public void addFoodToUser(String foodName) {
         Food theFood = new Food(foodName);
         theNavigationController.getCurrentUser().addFoodConsumed(theFood);
     }
-    
-    public void addMoodToUser(int rating){
+
+    public void addMoodToUser(int rating) {
         Mood theMood = new Mood(rating);
         theNavigationController.getCurrentUser().addMood(theMood);
     }
