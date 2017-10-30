@@ -14,6 +14,7 @@ import foodmood.mood.MoodHistoryUI;
 import foodmood.mood.MoodUI;
 import foodmood.navigation.NavigationController;
 import foodmood.user.User;
+import javax.swing.JOptionPane;
 
 /**
  *

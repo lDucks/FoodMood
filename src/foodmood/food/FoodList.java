@@ -5,8 +5,10 @@
  */
 package foodmood.food;
 
+import java.awt.Component;
 import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,6 +17,7 @@ import java.util.ArrayList;
 public class FoodList implements Serializable {
 
     private final ArrayList<Food> theFoodList;
+    private Component frame;
 
     /**
      * The default constructor
@@ -30,6 +33,8 @@ public class FoodList implements Serializable {
      */
     public void addFood(Food theFoodToAdd) {
         theFoodList.add(theFoodToAdd);
+        JOptionPane.showMessageDialog(frame,
+    "Food Successfully Added!");
     }
 
     /**
