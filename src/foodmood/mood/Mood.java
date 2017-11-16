@@ -35,8 +35,5 @@ public class Mood implements Serializable {
         return rating;
     }
 
-    public String toString() {
-        return getRating() + "";
-    }
 
 }

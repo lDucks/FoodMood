@@ -34,15 +34,6 @@ public class FoodList implements Serializable {
     }
 
     /**
-     * Remove a food from the FoodList by index
-     *
-     * @param index The index of the food to remove.
-     */
-    public void removeFood(int index) {
-        theFoodList.remove(index);
-    }
-
-    /**
      * Remove a food from the FoodList by object
      *
      * @param theFoodToRemove The food object to remove.

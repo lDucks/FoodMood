@@ -5,16 +5,9 @@
  */
 package foodmood;
 
-import foodmood.food.Food;
-import foodmood.food.FoodHistoryUI;
-import foodmood.food.FoodList;
-import foodmood.food.FoodUI;
-import foodmood.mood.Mood;
-import foodmood.mood.MoodHistoryUI;
-import foodmood.mood.MoodUI;
+import foodmood.food.*;
+import foodmood.mood.*;
 import foodmood.navigation.NavigationController;
-import foodmood.user.User;
-import javax.swing.JOptionPane;
 
 /**
  *

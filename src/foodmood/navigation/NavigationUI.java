@@ -44,6 +44,7 @@ public class NavigationUI extends javax.swing.JFrame {
         jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 200));
 
         addFoodButton.setText("Add Food");
         addFoodButton.addActionListener(new java.awt.event.ActionListener() {

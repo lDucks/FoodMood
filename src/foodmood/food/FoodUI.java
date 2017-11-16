@@ -41,6 +41,7 @@ public class FoodUI extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 200));
 
         jLabel1.setText("Food Name");
 
@@ -102,7 +103,6 @@ public class FoodUI extends javax.swing.JFrame {
     }//GEN-LAST:event_foodFieldFocusGained
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CreateButton;
     private javax.swing.JTextField foodField;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

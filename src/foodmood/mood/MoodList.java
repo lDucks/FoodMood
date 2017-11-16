@@ -5,7 +5,6 @@
  */
 package foodmood.mood;
 
-import java.awt.Component;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -32,15 +31,6 @@ public class MoodList implements Serializable {
      */
     public void addMood(Mood theMoodToAdd) {
         theMoodList.add(theMoodToAdd);
-    }
-
-    /**
-     * Remove a Mood from the MoodList by index
-     *
-     * @param index The index of the Mood to remove.
-     */
-    public void removeMood(int index) {
-        theMoodList.remove(index);
     }
 
     /**

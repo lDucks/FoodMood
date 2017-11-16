@@ -41,6 +41,7 @@ public class MoodUI extends javax.swing.JFrame {
         spinnerLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 200));
 
         jLabel1.setText("How did the foods make you feel? (1 is horrible, 5 is fantastic)");
 

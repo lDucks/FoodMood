@@ -6,10 +6,8 @@
 package foodmood.navigation;
 
 import foodmood.FoodMoodController;
-import foodmood.food.FoodHistoryUI;
 import foodmood.analytics.AnalyticsController;
 import foodmood.login.LoginController;
-import foodmood.mood.MoodHistoryUI;
 import foodmood.user.User;
 
 /**

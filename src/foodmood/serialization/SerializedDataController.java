@@ -46,15 +46,11 @@ public final class SerializedDataController {
             out = new ObjectOutputStream(fos);
             out.writeObject(sdModel);
             out.close();
-
-            System.out.println("Data write to " + filePath + " was successful.");
         } catch (IOException ex) {
             ex.printStackTrace();
-//            System.out.println("Data write to " + filePath + " failed.");
         }
 
         curTime = System.currentTimeMillis() - curTime;
-        System.out.println("Saving took " + curTime + "ms");
     }
 
     private void readFile(String filePath) {
@@ -65,7 +61,6 @@ public final class SerializedDataController {
             fis = new FileInputStream(filePath);
             in = new ObjectInputStream(fis);
             sdModel = (SerializedData) in.readObject();
-            System.out.println(sdModel.getList());
         } catch (IOException | ClassNotFoundException ex) {
             sdModel = new SerializedData();
         }
