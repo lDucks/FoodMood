@@ -24,42 +24,25 @@ public class FoodMoodController {
 
     private final NavigationController theNavigationController;
 
-    /**
-     * The default constructor
-     *
-     * @param theNavigationController
-     */
     public FoodMoodController(NavigationController theNavigationController) {
         this.theNavigationController = theNavigationController;
     }
 
-    /**
-     * Shows the food UI.
-     */
     public void showFoodUI() {
         FoodUI theFoodUI = new FoodUI(theNavigationController);
         theFoodUI.setVisible(true);
     }
 
-    /**
-     * Shows the mood UI.
-     */
     public void showMoodUI() {
         MoodUI theMoodUI = new MoodUI(theNavigationController);
         theMoodUI.setVisible(true);
     }
 
-    /**
-     * Shows the food history UI
-     */
     public void showFoodHistoryUI() {
         FoodHistoryUI theFoodHistoryUI = new FoodHistoryUI(theNavigationController);
         theFoodHistoryUI.setVisible(true);
     }
 
-    /**
-     * Shows the mood history UI
-     */
     public void showMoodHistoryUI() {
         MoodHistoryUI theMoodHistoryUI = new MoodHistoryUI(theNavigationController);
         theMoodHistoryUI.setVisible(true);
