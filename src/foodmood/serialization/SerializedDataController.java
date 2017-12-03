@@ -1,5 +1,9 @@
 package foodmood.serialization;
 
+import foodmood.food.Food;
+import foodmood.food.FoodList;
+import foodmood.mood.Mood;
+import foodmood.mood.MoodList;
 import foodmood.user.User;
 import foodmood.user.UserList;
 import java.io.FileInputStream;
@@ -37,7 +41,6 @@ public final class SerializedDataController {
     }
 
     private void writeFile(String filePath) {
-        long curTime = System.currentTimeMillis();
         FileOutputStream fos;
         ObjectOutputStream out;
 
@@ -49,8 +52,6 @@ public final class SerializedDataController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
-        curTime = System.currentTimeMillis() - curTime;
     }
 
     private void readFile(String filePath) {
@@ -86,5 +87,15 @@ public final class SerializedDataController {
 
     public ArrayList<User> getUserList() {
         return (ArrayList<User>) getList(UserList.STORAGE_FILE_PATH);
+    }
+
+    public FoodList getFoodList(User user) {
+        ArrayList<Food> theFoodArray = (ArrayList<Food>) getList(SerializedDataController.EXTERNAL_DATA_PATH + user.getUsername() + "-food.ser");
+        return new FoodList(theFoodArray);
+    }
+
+    public MoodList geMoodList(User user) {
+        ArrayList<Mood> theMoodArray = (ArrayList<Mood>) getList(SerializedDataController.EXTERNAL_DATA_PATH + user.getUsername() + "-mood.ser");
+        return new MoodList(theMoodArray);
     }
 }

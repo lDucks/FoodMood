@@ -24,6 +24,10 @@ public class MoodList implements Serializable {
         theMoodList = new ArrayList<>();
     }
 
+    public MoodList(ArrayList<Mood> theMoodArray) {
+        theMoodList = theMoodArray;
+    }
+
     /**
      * Add a mood to the MoodList
      *
@@ -58,5 +62,9 @@ public class MoodList implements Serializable {
      */
     public String[] toArray() {
        return theMoodList.stream().map(mood -> mood.getRating()+"").collect(Collectors.toList()).toArray(new String[0]);
+    }
+
+    public ArrayList getList() {
+       return theMoodList;
     }
 }

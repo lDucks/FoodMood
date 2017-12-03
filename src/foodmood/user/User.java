@@ -4,6 +4,7 @@ import foodmood.food.Food;
 import foodmood.food.FoodList;
 import foodmood.mood.Mood;
 import foodmood.mood.MoodList;
+import foodmood.serialization.SerializedDataController;
 import java.io.Serializable;
 
 /**
@@ -20,8 +21,9 @@ public class User implements Serializable {
     public User(String newUsername, char[] newPassword) {
         this.username = newUsername;
         this.password = newPassword;
-        this.theFoodList = new FoodList();
-        this.theMoodList = new MoodList();
+        
+        this.theFoodList = SerializedDataController.getSerializedDataCntl().getFoodList(this);
+        this.theMoodList = SerializedDataController.getSerializedDataCntl().geMoodList(this);
     }
 
     public String getUsername() {
@@ -47,6 +49,7 @@ public class User implements Serializable {
      */
     public void addFoodConsumed(Food theFoodConsumed) {
         this.theFoodList.addFood(theFoodConsumed);
+        saveFood();
     }
 
     /**
@@ -56,6 +59,7 @@ public class User implements Serializable {
      */
     public void addMood(Mood theMood) {
         this.theMoodList.addMood(theMood);
+        saveMood();
     }
 
     /**
@@ -68,5 +72,15 @@ public class User implements Serializable {
 
     public FoodList getFoodHistory() {
         return theFoodList;
+    }
+
+    private void saveFood() {
+        String foodpath = SerializedDataController.EXTERNAL_DATA_PATH + getUsername() + "-food.ser";
+        SerializedDataController.getSerializedDataCntl().setList(theFoodList.getList(), foodpath);
+    }
+
+    private void saveMood() {
+        String moodpath = SerializedDataController.EXTERNAL_DATA_PATH + getUsername() + "-mood.ser";
+        SerializedDataController.getSerializedDataCntl().setList(theMoodList.getList(), moodpath);
     }
 }
