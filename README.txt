@@ -1,7 +1,28 @@
 # FoodMood
 FoodMood application for IST 412 (Haynes)
 
+-Code Refactoring Notes-
 
+Based on the feedback provided to us by team: during the critique assignment, 
+our group made a number of significant changes in order to refactor and improve
+our code. To begin, our group went through and deleted a large amount of code
+that had been deemed unnecessary. Redundant method coding and implementation was
+ fixed and or removed along with a number of unused imports that were used 
+throughout the application. Although these issues were not crippling to the
+ project, it always helps to have clean code to help the application run/load 
+faster and make it easier to make changes to the code down the line. Along with 
+removing the unused code, our group made a number of changes and improvements to
+ the core code of the application. Dangerous issues regarding overriding and 
+incorrect implementation in the code were removed to help prevent errors in the 
+future. Additionally, changes were made to improve the look and consistency of 
+the application. One such change was to fix the inconstant window size and 
+ensure that window size would stay the same when a user was interacting with the
+application. These are small changes that may not seem extremely important, but 
+keeping interfaces consistent is a very important part of making an application 
+feel professional and keeping users coming back. Overall, our group made a 
+number of changes to the code that will ultimately help improve user experience 
+and make further additions to the code easier for our in the future.
+ 
 
 Dylan Straffon:
 
