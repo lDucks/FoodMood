@@ -57,7 +57,7 @@ public class FoodList implements Serializable {
     }
 
     public String[] toArray() {
-        return  theFoodList.stream().map(food -> food.getName()).collect(Collectors.toList()).toArray(new String[0]);
+        return  theFoodList.stream().map(food -> food.getName() + " - " + food.getDateAdded()).collect(Collectors.toList()).toArray(new String[0]);
     }
 
     public ArrayList getList() {

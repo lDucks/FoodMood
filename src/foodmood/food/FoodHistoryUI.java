@@ -17,15 +17,22 @@ public class FoodHistoryUI extends javax.swing.JFrame {
 
     /**
      * Creates new form FoodHistoryUI
+     *
      * @param theCntl
      */
     public FoodHistoryUI(NavigationController theCntl) {
         initComponents();
         this.theCntl = theCntl;
-         foodList.setModel(new javax.swing.AbstractListModel<String>() {
+        foodList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = theCntl.getCurrentUser().getFoodHistory().toArray();
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+
+            public int getSize() {
+                return strings.length;
+            }
+
+            public String getElementAt(int i) {
+                return strings[i];
+            }
         });
     }
 
@@ -89,8 +96,8 @@ public class FoodHistoryUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonActionPerformed
-          theCntl.showNavigationUI();
-          this.dispose();
+        theCntl.showNavigationUI();
+        this.dispose();
     }//GEN-LAST:event_menuButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel foodLabel;

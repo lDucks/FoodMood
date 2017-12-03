@@ -6,6 +6,7 @@
 package foodmood.food;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
@@ -15,27 +16,32 @@ public class Food implements Serializable {
 
     private final String name;
     private final long timestamp;
-    
+
     /**
      * The default constructor
      *
      * @param name The name parameter
      */
-    public Food(String name){
+    public Food(String name) {
         this.timestamp = System.currentTimeMillis();
         this.name = name;
     }
-    
+
     /**
      * Returns the name of the food
      *
      * @return name
      */
-    public String getName(){
+    public String getName() {
         return name;
     }
 
     public long getTimeAdded() {
-       return timestamp;
+        return timestamp;
+    }
+
+    public String getDateAdded() {
+        Date date = new Date(timestamp);
+        return date.toString();
     }
 }

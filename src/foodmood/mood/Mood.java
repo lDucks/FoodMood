@@ -1,6 +1,7 @@
 package foodmood.mood;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,5 +40,9 @@ public class Mood implements Serializable {
         return timestamp;
     }
 
+    public String getDateAdded() {
+        Date date = new Date(timestamp);
+        return date.toString();
+    }
 
 }
