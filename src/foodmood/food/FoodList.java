@@ -63,4 +63,11 @@ public class FoodList implements Serializable {
     public ArrayList getList() {
        return theFoodList;
     }
+
+    public Food getLastFood() {
+        if (theFoodList.isEmpty()) {
+            return null;
+        }
+        return this.get(theFoodList.size() - 1);
+    }
 }

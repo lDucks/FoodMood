@@ -48,7 +48,7 @@ public class MoodList implements Serializable {
 
     /**
      * Returns the mood at a given index
-     * 
+     *
      * @param index The index to return
      * @return The mood at the given index
      */
@@ -61,10 +61,17 @@ public class MoodList implements Serializable {
      * @return
      */
     public String[] toArray() {
-       return theMoodList.stream().map(mood -> mood.getRating()+"").collect(Collectors.toList()).toArray(new String[0]);
+        return theMoodList.stream().map(mood -> mood.getRating() + "").collect(Collectors.toList()).toArray(new String[0]);
     }
 
     public ArrayList getList() {
-       return theMoodList;
+        return theMoodList;
+    }
+
+    public Mood getLastMood() {
+        if (theMoodList.isEmpty()) {
+            return null;
+        }
+        return get(theMoodList.size() - 1);
     }
 }

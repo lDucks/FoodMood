@@ -1,8 +1,10 @@
 package foodmood.login;
 
 import foodmood.navigation.NavigationController;
+import foodmood.notification.NotificationController;
 import foodmood.user.User;
 import foodmood.user.UserList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,6 +40,9 @@ public final class LoginController {
 
         if (auth) {
              theCurrentUser = new User(usernameToCheck, passwordToCheck);
+             NotificationController theNC = new NotificationController(theCurrentUser);
+             theNC.checkForFoodNotification();
+             theNC.checkForMoodNotification();
         }
 
         return auth;

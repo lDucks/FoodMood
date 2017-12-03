@@ -35,5 +35,9 @@ public class Mood implements Serializable {
         return rating;
     }
 
+    public long getTimeAdded() {
+        return timestamp;
+    }
+
 
 }

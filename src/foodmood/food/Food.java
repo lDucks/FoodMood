@@ -34,4 +34,8 @@ public class Food implements Serializable {
     public String getName(){
         return name;
     }
+
+    public long getTimeAdded() {
+       return timestamp;
+    }
 }
