@@ -84,7 +84,7 @@ public class NavigationUI extends javax.swing.JFrame {
                     .addComponent(addFoodButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addMoodButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(foodHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(moodHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                    .addComponent(moodHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -98,10 +98,10 @@ public class NavigationUI extends javax.swing.JFrame {
                 .addComponent(foodHistoryButton)
                 .addGap(18, 18, 18)
                 .addComponent(moodHistoryButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(416, 239));
+        setSize(new java.awt.Dimension(241, 241));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
