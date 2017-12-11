@@ -51,4 +51,8 @@ public class Chart {
     public void setLabels(ArrayList<String> labels) {
         this.labels = labels;
     }
+
+    public ArrayList<String> getLabels() {
+        return labels;
+    }
 }
