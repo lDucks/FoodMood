@@ -5,9 +5,6 @@
  */
 package foodmood.analytics;
 
-import java.awt.Color;
-import java.util.ArrayList;
-
 /**
  *
  * @author Dylan
@@ -25,22 +22,16 @@ public class ChartUI extends javax.swing.JFrame {
         this.theCntl = theCntl;
         initComponents();
 
-        ArrayList<Double> values = new ArrayList<>();
-        values.add(new Double(10));
-        values.add(new Double(20));
-        values.add(new Double(30));
-        values.add(new Double(15));
-        values.add(new Double(15));
+        Chart foodChart = theCntl.getFoodChart();
+        Chart moodChart = theCntl.getMoodChart();
 
-        ArrayList<Color> colors = new ArrayList<>();
-        colors.add(Color.gray);
-        colors.add(Color.green);
-        colors.add(Color.blue);
-        colors.add(Color.pink);
-        colors.add(Color.yellow);
-        PieChart pieChart = new PieChart(values, colors);
-        pieChart.setSize(700, 700);
-        foodDistributionPanel.add(pieChart);
+        PieChart foodPieChart = new PieChart(foodChart.getValues(), foodChart.getColors());
+        foodPieChart.setSize(400, 400);
+        foodDistributionPanel.add(foodPieChart);
+
+        PieChart moodPieChart = new PieChart(moodChart.getValues(), moodChart.getColors());
+        moodPieChart.setSize(400, 400);
+        moodDistributionPanel.add(moodPieChart);
     }
 
     /**
@@ -71,28 +62,31 @@ public class ChartUI extends javax.swing.JFrame {
 
         jLabel2.setText("Mood Distribution:");
 
-        foodDistributionPanel.setPreferredSize(new java.awt.Dimension(700, 700));
+        foodDistributionPanel.setMinimumSize(new java.awt.Dimension(400, 400));
+        foodDistributionPanel.setPreferredSize(new java.awt.Dimension(400, 400));
 
         javax.swing.GroupLayout foodDistributionPanelLayout = new javax.swing.GroupLayout(foodDistributionPanel);
         foodDistributionPanel.setLayout(foodDistributionPanelLayout);
         foodDistributionPanelLayout.setHorizontalGroup(
             foodDistributionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         foodDistributionPanelLayout.setVerticalGroup(
             foodDistributionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
+
+        moodDistributionPanel.setPreferredSize(new java.awt.Dimension(400, 400));
 
         javax.swing.GroupLayout moodDistributionPanelLayout = new javax.swing.GroupLayout(moodDistributionPanel);
         moodDistributionPanel.setLayout(moodDistributionPanelLayout);
         moodDistributionPanelLayout.setHorizontalGroup(
             moodDistributionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         moodDistributionPanelLayout.setVerticalGroup(
             moodDistributionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,10 +95,8 @@ public class ChartUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -112,22 +104,20 @@ public class ChartUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(moodDistributionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(0, 22, Short.MAX_VALUE))))
+                            .addComponent(jLabel2))))
+                .addGap(0, 21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(foodDistributionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(4, 4, 4)
-                        .addComponent(moodDistributionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(moodDistributionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(foodDistributionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -148,4 +138,5 @@ public class ChartUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel moodDistributionPanel;
     // End of variables declaration//GEN-END:variables
+
 }

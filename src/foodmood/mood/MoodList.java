@@ -64,7 +64,7 @@ public class MoodList implements Serializable {
         return theMoodList.stream().map(mood -> mood.getRating() + " - " + mood.getDateAdded()).collect(Collectors.toList()).toArray(new String[0]);
     }
 
-    public ArrayList getList() {
+    public ArrayList<Mood> getList() {
         return theMoodList;
     }
 

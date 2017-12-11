@@ -11,8 +11,10 @@ import foodmood.login.LoginController;
 import foodmood.mood.Mood;
 import foodmood.navigation.NavigationController;
 import foodmood.user.User;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  *
@@ -102,8 +104,71 @@ public final class AnalyticsController extends NavigationController {
         theAnalyticAppUI.setVisible(true);
     }
 
-    void showChartUI() {
+    public void showChartUI() {
         ChartUI ui = new ChartUI(this);
         ui.setVisible(true);
+    }
+
+    public Chart getFoodChart() {
+        ArrayList<String> labels = new ArrayList<>();
+        ArrayList<Double> values = new ArrayList<>();
+        ArrayList<Color> colors = new ArrayList<>();
+
+        Random rand = new Random();
+
+        ArrayList<Food> foodHistory = getCurrentUser().getFoodHistory().getList();
+
+        for (Food food : foodHistory) {
+            if (!labels.contains(food.getName())) {
+                labels.add(food.getName());
+                values.add(new Double(1));
+                colors.add(new Color(rand.nextFloat(), rand.nextFloat(), rand.nextFloat()));
+            } else {
+                int index = labels.indexOf(food.getName());
+                values.set(index, values.get(index) + 1.0);
+            }
+        }
+
+        for (int i = 0; i < values.size(); i++) {
+            values.set(i, (values.get(i) / foodHistory.size()) * 100);
+        }
+
+        return new Chart(values, colors, labels);
+    }
+
+    public Chart getMoodChart() {
+        ArrayList<String> labels = new ArrayList<>();
+        labels.add("1");
+        labels.add("2");
+        labels.add("3");
+        labels.add("4");
+        labels.add("5");
+
+        ArrayList<Double> values = new ArrayList<>();
+        values.add(new Double(0));
+        values.add(new Double(0));
+        values.add(new Double(0));
+        values.add(new Double(0));
+        values.add(new Double(0));
+
+        ArrayList<Color> colors = new ArrayList<>();
+        colors.add(Color.RED);
+        colors.add(Color.BLUE);
+        colors.add(Color.GREEN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.MAGENTA);
+
+        ArrayList<Mood> moodHistory = getCurrentUser().getMoodHistory().getList();
+
+        for (Mood mood : moodHistory) {
+            values.set(mood.getRating(), values.get(mood.getRating()) + 1.0);
+        }
+
+        for (int i = 0; i < values.size(); i++) {
+            values.set(i, (values.get(i) / moodHistory.size()) * 100);
+            System.out.println((values.get(i) / moodHistory.size()) * 100);
+        }
+
+        return new Chart(values, colors, labels);
     }
 }
