@@ -6,7 +6,6 @@
 package foodmood.analytics;
 
 import foodmood.food.Food;
-import foodmood.food.FoodHistoryUI;
 import foodmood.food.FoodList;
 import foodmood.login.LoginController;
 import foodmood.mood.Mood;
@@ -52,7 +51,7 @@ public final class AnalyticsController extends NavigationController {
      *
      */
     public void showCorrelationUI() {
-        CorrelationUI theUI = new CorrelationUI(getFoodToEat(), getFoodToAvoid());
+        CorrelationUI theUI = new CorrelationUI(this, getFoodToEat(), getFoodToAvoid());
         theUI.setVisible(true);
         theAnalyticAppUI.setVisible(false);
     }
@@ -101,5 +100,10 @@ public final class AnalyticsController extends NavigationController {
     @Override
     public void showNavigationUI() {
         theAnalyticAppUI.setVisible(true);
+    }
+
+    void showChartUI() {
+        ChartUI ui = new ChartUI(this);
+        ui.setVisible(true);
     }
 }

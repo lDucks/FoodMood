@@ -14,13 +14,17 @@ import foodmood.food.FoodList;
  */
 public class CorrelationUI extends javax.swing.JFrame {
 
+    private final AnalyticsController theCntl;
+
     /**
      * Creates new form CorrelationUI
      *
+     * @param theCntl
      * @param theFoodToEat
      * @param theFoodToAvoid
      */
-    public CorrelationUI(FoodList theFoodToEat, FoodList theFoodToAvoid) {
+    public CorrelationUI(AnalyticsController theCntl, FoodList theFoodToEat, FoodList theFoodToAvoid) {
+        this.theCntl = theCntl;
         initComponents();
 
         if (!theFoodToEat.getList().isEmpty()) {
@@ -122,7 +126,8 @@ public class CorrelationUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
+        theCntl.showNavigationUI();
+        this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avoidLabel;

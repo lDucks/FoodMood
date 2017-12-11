@@ -61,6 +61,11 @@ public class AnalyticsNavigationUI extends javax.swing.JFrame {
         });
 
         chartButton.setText("View Charts");
+        chartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chartButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,6 +112,11 @@ public class AnalyticsNavigationUI extends javax.swing.JFrame {
        theCntl.showCorrelationUI();
        this.dispose();
     }//GEN-LAST:event_correlationButtonActionPerformed
+
+    private void chartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartButtonActionPerformed
+        theCntl.showChartUI();
+        this.dispose();
+    }//GEN-LAST:event_chartButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chartButton;
