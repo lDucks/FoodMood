@@ -7,6 +7,7 @@ package foodmood.picker;
 
 import foodmood.analytics.AnalyticsController;
 import foodmood.login.LoginController;
+import foodmood.navigation.NavigationController;
 
 /**
  *
@@ -15,20 +16,26 @@ import foodmood.login.LoginController;
 public class PickerController {
     
     private final AppPickerUI theAppPickerUI;
+    private final LoginController theLoginController;
     
-    public PickerController(){
+    /**
+     *
+     * @param theLoginController
+     */
+    public PickerController(LoginController theLoginController){
         this.theAppPickerUI = new AppPickerUI(this);
         theAppPickerUI.setVisible(true);
+        this.theLoginController = theLoginController;
     }
     
     
     public void pickMobileApp(){
-        new LoginController();
+        new NavigationController(theLoginController);
         theAppPickerUI.dispose();
     }
     
     public void pickAnalyticsApp(){
-        new AnalyticsController();
+        new AnalyticsController(theLoginController);
         theAppPickerUI.dispose();
     }
     

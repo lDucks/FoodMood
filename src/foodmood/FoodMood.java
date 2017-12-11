@@ -5,7 +5,7 @@
  */
 package foodmood;
 
-import foodmood.picker.PickerController;
+import foodmood.login.LoginController;
 
 /**
  *
@@ -17,7 +17,7 @@ public class FoodMood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PickerController thePickerController = new PickerController();
+        new LoginController();
     }
     
     

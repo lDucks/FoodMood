@@ -112,7 +112,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         if (this.parentLoginCntl.requestAuthenticate(username, password)) {
             System.err.println("User Authenticated.");
-            this.parentLoginCntl.requestNavigationCntl().showNavigationUI();
+            this.parentLoginCntl.requestPickerController();
             this.dispose();
         } else {
             System.err.println("User NOT Authenticated.");

@@ -8,6 +8,7 @@ package foodmood.navigation;
 import foodmood.FoodMoodController;
 import foodmood.analytics.AnalyticsController;
 import foodmood.login.LoginController;
+import foodmood.notification.NotificationController;
 import foodmood.user.User;
 
 /**
@@ -17,17 +18,16 @@ import foodmood.user.User;
 public class NavigationController {
 
     private final NavigationUI theNavUI;
-    private final AnalyticsController theAnalyticsController;
     private final FoodMoodController theFoodMoodController;
     private final LoginController theLoginController;
 
     /**
      * The default constructor.
+     *
      * @param theLoginController
      */
     public NavigationController(LoginController theLoginController) {
         theNavUI = new NavigationUI(this);
-        theAnalyticsController = new AnalyticsController();
         theFoodMoodController = new FoodMoodController(this);
         this.theLoginController = theLoginController;
     }
@@ -37,22 +37,16 @@ public class NavigationController {
      */
     public void showNavigationUI() {
         theNavUI.setVisible(true);
+        NotificationController theNC = new NotificationController(theLoginController.getCurrentUser());
+        theNC.checkForFoodNotification();
+        theNC.checkForMoodNotification();
     }
-    
+
     /**
      * Hides the navigation UI.
      */
     public void hideNavigationUI() {
-       theNavUI.setVisible(false);
-    }
-
-    /**
-     * Returns the analytics controller
-     *
-     * @return The analytics controller
-     */
-    public AnalyticsController getAnalyticsController() {
-        return theAnalyticsController;
+        theNavUI.setVisible(false);
     }
 
     public FoodMoodController getFoodMoodController() {

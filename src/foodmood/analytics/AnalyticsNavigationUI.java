@@ -5,17 +5,24 @@
  */
 package foodmood.analytics;
 
+import foodmood.navigation.NavigationController;
+
 /**
  *
  * @author Dylan
  */
-public class AnalyticNavigationUI extends javax.swing.JFrame {
+public class AnalyticsNavigationUI extends javax.swing.JFrame {
+
+    private final AnalyticsController theCntl;
 
     /**
      * Creates new form analyticNavigationUI
+     *
+     * @param theCntl
      */
-    public AnalyticNavigationUI() {
+    public AnalyticsNavigationUI(AnalyticsController theCntl) {
         initComponents();
+        this.theCntl = theCntl;
     }
 
     /**
@@ -35,8 +42,18 @@ public class AnalyticNavigationUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         foodHistoryButton.setText("View Food History");
+        foodHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                foodHistoryButtonActionPerformed(evt);
+            }
+        });
 
         moodHistoryButton.setText("View Mood History");
+        moodHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moodHistoryButtonActionPerformed(evt);
+            }
+        });
 
         correlationButton.setText("View Correlations");
 
@@ -72,41 +89,15 @@ public class AnalyticNavigationUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void foodHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodHistoryButtonActionPerformed
+        theCntl.getFoodMoodController().showFoodHistoryUI();
+        this.dispose();
+    }//GEN-LAST:event_foodHistoryButtonActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AnalyticNavigationUI().setVisible(true);
-            }
-        });
-    }
+    private void moodHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moodHistoryButtonActionPerformed
+        theCntl.getFoodMoodController().showMoodHistoryUI();
+        this.dispose();
+    }//GEN-LAST:event_moodHistoryButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chartButton;

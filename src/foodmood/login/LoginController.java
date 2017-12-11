@@ -1,10 +1,8 @@
 package foodmood.login;
 
-import foodmood.navigation.NavigationController;
-import foodmood.notification.NotificationController;
+import foodmood.picker.PickerController;
 import foodmood.user.User;
 import foodmood.user.UserList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,9 +28,9 @@ public final class LoginController {
         theLoginUI.setVisible(true);
     }
 
-    public NavigationController requestNavigationCntl() {
+    public void requestPickerController() {
         theLoginUI.dispose();
-        return new NavigationController(this);
+        new PickerController(this);
     }
 
      public boolean requestAuthenticate(String usernameToCheck, char[] passwordToCheck) {
@@ -40,9 +38,6 @@ public final class LoginController {
 
         if (auth) {
              theCurrentUser = new User(usernameToCheck, passwordToCheck);
-             NotificationController theNC = new NotificationController(theCurrentUser);
-             theNC.checkForFoodNotification();
-             theNC.checkForMoodNotification();
         }
 
         return auth;

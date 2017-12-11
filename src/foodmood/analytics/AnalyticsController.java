@@ -6,20 +6,30 @@
 package foodmood.analytics;
 
 import foodmood.food.Food;
+import foodmood.food.FoodHistoryUI;
 import foodmood.food.FoodList;
+import foodmood.login.LoginController;
+import foodmood.navigation.NavigationController;
 import foodmood.user.User;
 
 /**
  *
  * @author justin
  */
-public class AnalyticsController {
+public class AnalyticsController extends NavigationController {
 
-    private final AnalyticNavigationUI theAnalyticAppUI;
+    private final AnalyticsNavigationUI theAnalyticAppUI;
+    private final LoginController theLoginController;
     
-    public AnalyticsController(){
-        this.theAnalyticAppUI = new AnalyticNavigationUI();
-        theAnalyticAppUI.setVisible(true);
+    /**
+     *
+     * @param theLoginController
+     */
+    public AnalyticsController(LoginController theLoginController){
+        super(theLoginController);
+        this.theAnalyticAppUI = new AnalyticsNavigationUI(this);
+        this.theLoginController = theLoginController;
+        this.showNavigationUI();
     }
     
     /**
@@ -71,4 +81,8 @@ public class AnalyticsController {
         theChart.showChart();
     }
     
+    @Override
+    public void showNavigationUI(){
+        theAnalyticAppUI.setVisible(true);
+    }
 }

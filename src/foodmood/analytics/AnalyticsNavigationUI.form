@@ -56,11 +56,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Food History"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="foodHistoryButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="moodHistoryButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Mood History"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="moodHistoryButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="correlationButton">
       <Properties>
