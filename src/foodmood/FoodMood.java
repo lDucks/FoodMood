@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package foodmood;
-import foodmood.login.*;
+
+import foodmood.picker.PickerController;
+
 /**
  *
  * @author justin
@@ -15,7 +17,8 @@ public class FoodMood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        LoginController theLoginController = new LoginController();
+        PickerController thePickerController = new PickerController();
     }
+    
     
 }

@@ -9,12 +9,12 @@ package foodmood.analytics;
  *
  * @author Dylan
  */
-public class analyticNavigationUI extends javax.swing.JFrame {
+public class AnalyticNavigationUI extends javax.swing.JFrame {
 
     /**
      * Creates new form analyticNavigationUI
      */
-    public analyticNavigationUI() {
+    public AnalyticNavigationUI() {
         initComponents();
     }
 
@@ -89,20 +89,21 @@ public class analyticNavigationUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(analyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(analyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(analyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(analyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnalyticNavigationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new analyticNavigationUI().setVisible(true);
+                new AnalyticNavigationUI().setVisible(true);
             }
         });
     }

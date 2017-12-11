@@ -14,6 +14,13 @@ import foodmood.user.User;
  * @author justin
  */
 public class AnalyticsController {
+
+    private final AnalyticNavigationUI theAnalyticAppUI;
+    
+    public AnalyticsController(){
+        this.theAnalyticAppUI = new AnalyticNavigationUI();
+        theAnalyticAppUI.setVisible(true);
+    }
     
     /**
      * Returns the relation chart object

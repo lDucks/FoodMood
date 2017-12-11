@@ -3,19 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foodmood.analytics;
+package foodmood.picker;
 
 /**
  *
  * @author Dylan
  */
-public class appLauncherUI extends javax.swing.JFrame {
+public class AppPickerUI extends javax.swing.JFrame {
+
+    private final PickerController theCntl;
 
     /**
      * Creates new form appLauncherUI
+     *
+     * @param theCntl
      */
-    public appLauncherUI() {
+    public AppPickerUI(PickerController theCntl) {
         initComponents();
+        this.theCntl = theCntl;
     }
 
     /**
@@ -36,9 +41,19 @@ public class appLauncherUI extends javax.swing.JFrame {
         jLabel1.setText("Please select an app to Launch...");
 
         mobileAppButton.setText("Mobile Application");
+        mobileAppButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mobileAppButtonActionPerformed(evt);
+            }
+        });
 
         analyticAppButton.setText("Anayltic Application");
         analyticAppButton.setToolTipText("");
+        analyticAppButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                analyticAppButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,40 +85,13 @@ public class appLauncherUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(appLauncherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(appLauncherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(appLauncherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(appLauncherUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void mobileAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobileAppButtonActionPerformed
+        theCntl.pickMobileApp();
+    }//GEN-LAST:event_mobileAppButtonActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new appLauncherUI().setVisible(true);
-            }
-        });
-    }
+    private void analyticAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analyticAppButtonActionPerformed
+        theCntl.pickAnalyticsApp();
+    }//GEN-LAST:event_analyticAppButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton analyticAppButton;
