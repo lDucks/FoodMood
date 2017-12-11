@@ -161,7 +161,7 @@ public final class AnalyticsController extends NavigationController {
         ArrayList<Mood> moodHistory = getCurrentUser().getMoodHistory().getList();
 
         for (Mood mood : moodHistory) {
-            values.set(mood.getRating(), values.get(mood.getRating()) + 1.0);
+            values.set(mood.getRating()-1, values.get(mood.getRating()-1) + 1.0);
         }
 
         for (int i = 0; i < values.size(); i++) {
