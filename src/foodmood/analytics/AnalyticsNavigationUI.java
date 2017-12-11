@@ -90,6 +90,7 @@ public class AnalyticsNavigationUI extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void foodHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodHistoryButtonActionPerformed
