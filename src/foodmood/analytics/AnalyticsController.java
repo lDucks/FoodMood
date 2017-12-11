@@ -9,9 +9,11 @@ import foodmood.food.Food;
 import foodmood.food.FoodHistoryUI;
 import foodmood.food.FoodList;
 import foodmood.login.LoginController;
+import foodmood.mood.Mood;
 import foodmood.navigation.NavigationController;
 import foodmood.user.User;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -20,7 +22,8 @@ import java.util.ArrayList;
 public final class AnalyticsController extends NavigationController {
 
     private final AnalyticsNavigationUI theAnalyticAppUI;
-    private final LoginController theLoginController;
+    private Correlation theFoodToEat;
+    private Correlation theFoodToAvoid;
 
     /**
      *
@@ -29,8 +32,9 @@ public final class AnalyticsController extends NavigationController {
     public AnalyticsController(LoginController theLoginController) {
         super(theLoginController);
         this.theAnalyticAppUI = new AnalyticsNavigationUI(this);
-        this.theLoginController = theLoginController;
         this.showNavigationUI();
+
+        generateCorrelations();
     }
 
     /**
@@ -48,19 +52,50 @@ public final class AnalyticsController extends NavigationController {
      *
      */
     public void showCorrelationUI() {
-        CorrelationUI theUI = new CorrelationUI();
+        CorrelationUI theUI = new CorrelationUI(getFoodToEat(), getFoodToAvoid());
         theUI.setVisible(true);
         theAnalyticAppUI.setVisible(false);
     }
 
-    public void getFoodToEat() {
+    private void generateCorrelations() {
         ArrayList<Food> theFoodHistory = getCurrentUser().getFoodHistory().getList();
-        ArrayList<Food> tempArray = new ArrayList<>();
-        
+        ArrayList<Mood> theMoodHistory = getCurrentUser().getMoodHistory().getList();
+
+        HashMap<Long, Correlation> correlations = new HashMap<>();
+
         for (Food theFood : theFoodHistory) {
-            tempArray.add(theFood);
-            System.out.println();
+            long timestamp = 1000 * (theFood.getTimeAdded() / (60 * 60 * 1000));
+
+            if (!correlations.containsKey(timestamp)) {
+                Correlation correlation = new Correlation();
+                correlation.addFood(theFood);
+                correlations.put(timestamp, correlation);
+            } else {
+                correlations.get(timestamp).addFood(theFood);
+            }
         }
+
+        for (Mood mood : theMoodHistory) {
+            long timestamp = 1000 * (mood.getTimeAdded() / (60 * 60 * 1000));
+            if (correlations.containsKey(timestamp)) {
+                Correlation correlation = correlations.get(timestamp);
+                correlation.incrementMood(mood);
+
+                if (theFoodToEat == null || correlation.getTotalMood() > theFoodToEat.getTotalMood()) {
+                    theFoodToEat = correlation;
+                } else if (theFoodToAvoid == null || correlation.getTotalMood() < theFoodToAvoid.getTotalMood()) {
+                    theFoodToAvoid = correlation;
+                }
+            }
+        }
+    }
+
+    public FoodList getFoodToEat() {
+        return theFoodToEat.getFoodList();
+    }
+
+    public FoodList getFoodToAvoid() {
+        return theFoodToAvoid.getFoodList();
     }
 
     @Override

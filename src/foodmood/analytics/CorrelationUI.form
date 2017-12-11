@@ -28,7 +28,7 @@
               <Component id="backButton" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="jLabel1" alignment="1" pref="250" max="32767" attributes="0"/>
+          <Component id="jLabel1" alignment="1" pref="560" max="32767" attributes="0"/>
           <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
           <Component id="eatLabel" alignment="0" max="32767" attributes="0"/>
           <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
@@ -94,7 +94,7 @@
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="eat"/>
+        <Property name="text" type="java.lang.String" value="We do not have enough data to calculate this."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="avoidLabel">
@@ -103,7 +103,8 @@
           <Font name="Tahoma" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="avoid"/>
+        <Property name="text" type="java.lang.String" value="We do not have enough data to calculate this."/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
   </SubComponents>

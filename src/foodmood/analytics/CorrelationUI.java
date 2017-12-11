@@ -5,6 +5,9 @@
  */
 package foodmood.analytics;
 
+import foodmood.food.Food;
+import foodmood.food.FoodList;
+
 /**
  *
  * @author justi
@@ -13,9 +16,28 @@ public class CorrelationUI extends javax.swing.JFrame {
 
     /**
      * Creates new form CorrelationUI
+     *
+     * @param theFoodToEat
+     * @param theFoodToAvoid
      */
-    public CorrelationUI() {
+    public CorrelationUI(FoodList theFoodToEat, FoodList theFoodToAvoid) {
         initComponents();
+
+        if (!theFoodToEat.getList().isEmpty()) {
+            String foodList = "";
+            for (Food food : theFoodToEat.getList()) {
+                foodList = foodList.concat(food.getName() + "; ");
+            }
+            eatLabel.setText(foodList);
+        }
+
+        if (!theFoodToAvoid.getList().isEmpty()) {
+            String foodList = "";
+            for (Food food : theFoodToAvoid.getList()) {
+                foodList = foodList.concat(food.getName() + "; ");
+            }
+            avoidLabel.setText(foodList);
+        }
     }
 
     /**
@@ -56,11 +78,12 @@ public class CorrelationUI extends javax.swing.JFrame {
 
         eatLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         eatLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        eatLabel.setText("eat");
+        eatLabel.setText("We do not have enough data to calculate this.");
 
         avoidLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         avoidLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        avoidLabel.setText("avoid");
+        avoidLabel.setText("We do not have enough data to calculate this.");
+        avoidLabel.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +93,7 @@ public class CorrelationUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(backButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(eatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,42 +124,6 @@ public class CorrelationUI extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_backButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CorrelationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CorrelationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CorrelationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CorrelationUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CorrelationUI().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel avoidLabel;
     private javax.swing.JButton backButton;

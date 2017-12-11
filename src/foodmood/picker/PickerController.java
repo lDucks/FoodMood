@@ -30,7 +30,8 @@ public class PickerController {
     
     
     public void pickMobileApp(){
-        new NavigationController(theLoginController);
+        NavigationController cntl = new NavigationController(theLoginController);
+        cntl.showNavigationUI();
         theAppPickerUI.dispose();
     }
     
