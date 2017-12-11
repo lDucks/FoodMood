@@ -5,8 +5,6 @@
  */
 package foodmood.analytics;
 
-import foodmood.navigation.NavigationController;
-
 /**
  *
  * @author Dylan
@@ -56,6 +54,11 @@ public class AnalyticsNavigationUI extends javax.swing.JFrame {
         });
 
         correlationButton.setText("View Correlations");
+        correlationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                correlationButtonActionPerformed(evt);
+            }
+        });
 
         chartButton.setText("View Charts");
 
@@ -98,6 +101,11 @@ public class AnalyticsNavigationUI extends javax.swing.JFrame {
         theCntl.getFoodMoodController().showMoodHistoryUI();
         this.dispose();
     }//GEN-LAST:event_moodHistoryButtonActionPerformed
+
+    private void correlationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correlationButtonActionPerformed
+       theCntl.showCorrelationUI();
+       this.dispose();
+    }//GEN-LAST:event_correlationButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton chartButton;
